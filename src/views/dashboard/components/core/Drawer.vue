@@ -94,7 +94,7 @@
         },
          {
           icon: 'mdi-widgets',
-          title: 'ListarEntradas',
+          title: 'EntradasProveedor',
           to: '/ListarEntradasProveedor'
         },
         {

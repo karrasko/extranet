@@ -136,7 +136,7 @@ export default new Router({
         },
         {
           name: 'ListarEntradas',
-          path: 'ListarEntradas',
+          path: 'ListarEntradasProveedor',
           component: () => import('@/views/EntradasProveedor/ListarEntradasProveedor')
         },
         {
