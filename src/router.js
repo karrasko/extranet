@@ -135,6 +135,11 @@ export default new Router({
           component: () => import('@/views/dashboard/Widgets')
         },
         {
+          name: 'ListarEntradas',
+          path: 'ListarEntradas',
+          component: () => import('@/views/EntradasProveedor/ListarEntradasProveedor')
+        },
+        {
           name: 'Charts',
           path: 'charts',
           component: () => import('@/views/dashboard/Charts')

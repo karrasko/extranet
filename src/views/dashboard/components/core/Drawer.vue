@@ -92,6 +92,11 @@
           title: 'dashboard',
           to: '/'
         },
+         {
+          icon: 'mdi-widgets',
+          title: 'ListarEntradas',
+          to: '/ListarEntradasProveedor'
+        },
         {
           group: '/pages',
           icon: 'mdi-image',
@@ -219,7 +224,7 @@
           title: 'widgets',
           to: '/widgets'
         },
-        {
+       {
           icon: 'mdi-chart-timeline-variant',
           title: 'charts',
           to: '/charts'
