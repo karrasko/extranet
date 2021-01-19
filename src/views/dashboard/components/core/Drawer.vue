@@ -97,6 +97,11 @@
           title: 'EntradasProveedor',
           to: '/ListarEntradasProveedor'
         },
+         {
+          icon: 'mdi-widgets',
+          title: 'articulos',
+          to: '/ListarArticulos'
+        },
         {
           group: '/pages',
           icon: 'mdi-image',
