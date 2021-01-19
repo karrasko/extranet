@@ -29,64 +29,85 @@
         single-line
         style="max-width: 250px;"
       />
-
-      <v-divider class="mt-3" />
-
-
- <template v-slot:after-heading>
-            <div class="display-1 mt-2 font-weight-light">
-              Date Picker <span class="body-1">— labeled</span>
-            </div>
-          </template>
-
-          <v-menu
-            ref="menu"
-            v-model="menu"
-            :close-on-content-click="false"
-            :return-value.sync="date"
-            transition="scale-transition"
-            min-width="290px"
-            offset-y
-          >
-            <template v-slot:activator="{ on }">
-              <v-text-field
-                v-model="date"
-                color="secondary"
-                label="Select date"
-                prepend-icon="mdi-calendar-outline"
-                readonly
-                v-on="on"
-              />
-            </template>
-
-            <v-date-picker
-              v-model="date"
-              color="secondary"
-              landscape
-              scrollable
-            >
-              <v-spacer />
-              <v-btn
-                color="secondary"
-                large
-                @click="menu = false"
-              >
-                Cancel
-              </v-btn>
-
-              <v-btn
-                color="secondary"
-                large
-                @click="$refs.menu.save(date)"
-              >
-                OK
-              </v-btn>
-            </v-date-picker>
-          </v-menu>
-        </base-material-card>
+     <template>
+     <v-container>
+        <v-card
+           > <v-toolbar
+        dense
+        flat
+        class="body-2 font-weight-bold"
+        color="grey lighten-2"
+        >Vuetify Date Picker Example</v-toolbar
+      >
+   
+    <v-row class="ma-1">
+      <v-col cols="12">
+        Pick a date. Have fun.
       </v-col>
+      <v-col cols="12" md="6">
+        <v-menu
+              
+              v-model="fromDateMenu"
+              :close-on-content-click="false"
+              :nudge-right="40"
+              transition="scale-transition"
+              offset-y 
+              max-width="290px"
+              min-width="290px"
+            >
+              <template v-slot:activator="{ on }">
+                <v-text-field
+                  label="Desde"
+                  prepend-icon="e"
+                  readonly
+                  :value="fromDateDisp"
+                   v-on="on"
+                 ></v-text-field>
+              </template>
+              <v-date-picker
+                locale="en-in"
+                v-model="fromDateVal"
+                no-title
+                @input="fromDateMenu = false"
+                :min="minDate"
+              ></v-date-picker>
+            </v-menu>
+        </v-col>
+<v-col cols="12" md="6">
+        <v-menu
+              
+              v-model="fromDateMenu"
+              :close-on-content-click="false"
+              :nudge-right="40"
+              transition="scale-transition"
+              offset-y 
+              max-width="290px"
+              min-width="290px"
+            >
+              <template v-slot:activator="{ on }">
+                <v-text-field
+                  label="From"
+                  prepend-icon="event"
+                  readonly
+                  :value="fromDateDisp"
+                   v-on="on"
+                 ></v-text-field>
+              </template>
+              <v-date-picker
+                locale="en-in"
+                v-model="fromDateVal"
+                no-title
+                @input="fromDateMenu = false"
+                :min="minDate"
+              ></v-date-picker>
+            </v-menu>
+        </v-col>
 
-
+       </v-row>
+     </v-card>
+  </v-container>
+ </template>
+      <v-divider class="mt-3" />
 
       <v-data-table
         :headers="headers"
