@@ -151,6 +151,11 @@ export default new Router({
           path: 'Stock/Totales',
           component: () => import('@/views/dashboard/Stock/Totales')
         },
+       {
+          name: 'Componente',
+          path: 'Stock/Componente',
+          component: () => import('@/views/dashboard/Stock/Componente')
+        },
        /*  {
           name: 'Login',
           path: 'login',

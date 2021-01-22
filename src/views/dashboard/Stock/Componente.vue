@@ -16,7 +16,7 @@
     >
       <template v-slot:after-heading>
         <div class="display-2 font-weight-light">
-          Totales
+          Componente
         </div>
       </template>
 
@@ -228,16 +228,14 @@
             </tr>
            </thead>
          <tbody>
-            <tr v-for="(total, index) in total" :key="index">
-                <td>{{total.ITEMID}}</td>
-                <td>{{total.NAME}}</td>
-                <td>{{total.NAMEALIAS}}</td>
-                <td>{{total.PDWSUBFAMILYID}}</td>
-                <td>{{total.STOCK}}</td>
-                <td>{{total.INVENTSTATUSID}}</td>
+            <tr v-for="(componente, index) in componente" :key="index">
+                <td>{{componente.ITEMID}}</td>
+                <td>{{componente.NAME}}</td>
+                <td>{{componente.NAMEALIAS}}</td>
+                <td>{{componente.PDWSUBFAMILYID}}</td>
+                <td>{{componente.STOCK}}</td>
+                <td>{{componente.INVENTSTATUSID}}</td>
                 <td>
-                    <!-- <v-btn :to="{name:'editarArticulo', params:{id:articulo.id}}" fab small color="primary"><v-icon>mdi-pencil</v-icon></v-btn>
-                    <v-btn @click.stop="dialog=true" @click="id=articulo.id" fab small color="error"><v-icon>mdi-delete</v-icon></v-btn> -->
                 </td>
             </tr>
          </tbody>   
@@ -258,7 +256,7 @@
 import axios from 'axios';
   export default {
     /* name: 'DashboardDataTables', */
-    name:'Totales', mounted(){
+    name:'Componente', mounted(){
         this.obtenerTotales();
     } ,/*
       computed: {
@@ -272,7 +270,7 @@ data(){
 
         return{            
           /*   dates: ['2019-09-10', '2019-09-20'], */
-            total:null,
+             componente:null, 
           /*   index:null,
             snackbar:false, */
            /*  date: '',
@@ -312,10 +310,10 @@ data(){
 
     methods:{
         obtenerTotales(){
-            axios.get('http://localhost/apirest/totales.php')
+            axios.get('http://localhost/apirest/componente.php')
             .then(r => {
-                this.total = r.data;
-                console.log(this.total);
+                this.componente = r.data;
+                console.log(this.componente);
             })
             .catch(function(error){
                 console.log(error);
