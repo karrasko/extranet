@@ -33,7 +33,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="entrada in entradas" :key="entrada">
+            <tr v-for="entrada in entradas" :key="id2">
                 <td>{{entrada.ITEMID}}</td>
                 <td>{{entrada.NAME}}</td>
                 <td>{{entrada.NAMEALIAS}}</td>

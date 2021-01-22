@@ -164,7 +164,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="entrada in entradas" :key="entrada">
+            <tr v-for="entrada in entradas" :key="id">
                 <td>{{entrada.ITEMID}}</td>
                 <td>{{entrada.NAME}}</td>
                 <td>{{entrada.NAMEALIAS}}</td>
@@ -225,6 +225,26 @@ import axios from 'axios';
 
         },
  */
+
+   date: '',
+            date2: '2019-09-26',
+            date3: '',
+            fecha: new Date().toISOString().substr(0,10),
+            dropdown: [
+                {
+                id: 1,
+                text: 'Action'
+                },
+                {
+                id: 2,
+                text: 'Another Action'
+                },
+                {
+                id: 3,
+                text: 'A Third Action'
+                }
+            ],
+
     data: () => ({
       headers: [
         {

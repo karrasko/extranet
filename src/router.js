@@ -7,6 +7,7 @@ export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+   
     {
       path: '/pages',
       component: () => import('@/views/pages/Index'),
@@ -144,6 +145,27 @@ export default new Router({
           path: 'ListarEntradasProveedor',
           component: () => import('@/views/EntradasProveedor/ListarEntradasProveedor')
         },
+        // Stock
+       {
+          name: 'Totales',
+          path: 'Stock/Totales',
+          component: () => import('@/views/dashboard/Stock/Totales')
+        },
+       /*  {
+          name: 'Login',
+          path: 'login',
+          component: () => import('@/views/pages/Login')
+        },
+        {
+          name: 'Pricing',
+          path: 'pricing',
+          component: () => import('@/views/pages/Pricing')
+        },
+        {
+          name: 'Register',
+          path: 'register',
+          component: () => import('@/views/pages/Register')
+          }, */
         {
           name: 'Charts',
           path: 'charts',

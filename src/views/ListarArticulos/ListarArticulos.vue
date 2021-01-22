@@ -28,27 +28,30 @@
 
       <v-row>
 
+            <v-col 
+             cols="12"
+             sm="6"
+              >
+                  <v-date-picker
+                   v-model="dates"
+                   range
+                   scrollable
+                  ></v-date-picker>
+              </v-col>
             <v-col
-      cols="12"
-      sm="6"
-    >
-      <v-date-picker
-        v-model="dates"
-        range
-      ></v-date-picker>
-      </v-col>
-       <v-col
-         cols="12"
-         sm="6"
-        >
-        <v-text-field
-          v-model="dateRangeText"
-          label="Date range"
-          prepend-icon="mdi-calendar"
-          readonly
-      ></v-text-field>
-      model: {{ dates }}
-    </v-col>
+             cols="12"
+             sm="6"
+            >
+                  <v-text-field
+                   v-model="dates"
+                   label="Date range"
+                   prepend-icon="mdi-calendar"
+                   readonly
+                   
+                   ></v-text-field> 
+
+                   model: {{ dates }}
+              </v-col>
 
    
 
@@ -182,7 +185,7 @@
             </tr>
            </thead>
          <tbody>
-            <tr v-for="entrada in entradas" :key="entrada">
+            <tr v-for="(entrada, index) in entradas" :key="index">
                 <td>{{entrada.ITEMID}}</td>
                 <td>{{entrada.NAME}}</td>
                 <td>{{entrada.NAMEALIAS}}</td>
@@ -218,6 +221,7 @@ import axios from 'axios';
       computed: {
       dateRangeText () {
         return this.dates.join(' ~ ')
+        
       },
     },
 data(){
@@ -225,6 +229,7 @@ data(){
 
         return{            
             dates: ['2019-09-10', '2019-09-20'],
+            fecha: new Date().toISOString().substr(0,10),
             entradas:null,
             entrada:null,
             snackbar:false,
@@ -258,7 +263,7 @@ data(){
             .catch(function(error){
                 console.log(error);
             })
-
+ 
         }, */
 /*  testado */
 

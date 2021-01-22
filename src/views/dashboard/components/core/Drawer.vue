@@ -103,6 +103,45 @@
           to: '/ListarArticulos'
         },
         {
+          group: '/Stock',
+          icon: 'mdi-image',
+          title: 'Stock',
+          children: [
+            {
+              title: 'Totales',
+              to: 'Totales'
+            },
+            {
+              title: 'Componente',
+              to: 'Componente'
+            },
+            {
+              title: 'Producto-Terminado',
+              to: 'ProductoTerminado'
+            },
+            {
+              title: 'Producto-Terminado-Deposito',
+              to: 'ProductoTerminadoDeposito'
+            },
+            {
+              title: 'Bulk-Perfumeria',
+              to: 'BulkPerfumeria'
+            },
+            {
+              title: 'Bulk-Cosmetica',
+              to: 'BulkCosmetica'
+            },
+            {
+              title: 'Perfumes',
+              to: 'Perfumes'
+            },
+            {
+              title: 'Stock-Rechazados',
+              to: 'StockRechazados'
+            }
+            ]
+        },
+        {
           group: '/pages',
           icon: 'mdi-image',
           title: 'pages',
