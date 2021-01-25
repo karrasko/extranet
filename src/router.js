@@ -156,6 +156,11 @@ export default new Router({
           path: 'Stock/Componente',
           component: () => import('@/views/dashboard/Stock/Componente')
         },
+       {
+          name: 'ProductoTerminado',
+          path: 'Stock/ProductoTerminado',
+          component: () => import('@/views/dashboard/Stock/ProductoTerminado')
+        },
        /*  {
           name: 'Login',
           path: 'login',

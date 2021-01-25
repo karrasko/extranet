@@ -116,19 +116,19 @@
               to: 'Componente'
             },
             {
-              title: 'Producto-Terminado',
+              title: 'ProductoTerminado',
               to: 'ProductoTerminado'
             },
             {
-              title: 'Producto-Terminado-Deposito',
+              title: 'ProductoTerminadoDeposito',
               to: 'ProductoTerminadoDeposito'
             },
             {
-              title: 'Bulk-Perfumeria',
+              title: 'BulkPerfumeria',
               to: 'BulkPerfumeria'
             },
             {
-              title: 'Bulk-Cosmetica',
+              title: 'BulkCosmetica',
               to: 'BulkCosmetica'
             },
             {
@@ -136,7 +136,7 @@
               to: 'Perfumes'
             },
             {
-              title: 'Stock-Rechazados',
+              title: 'StockRechazados',
               to: 'StockRechazados'
             }
             ]
