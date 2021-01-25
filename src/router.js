@@ -161,6 +161,11 @@ export default new Router({
           path: 'Stock/ProductoTerminado',
           component: () => import('@/views/dashboard/Stock/ProductoTerminado')
         },
+       {
+          name: 'ProductoTerminadoDeposito',
+          path: 'Stock/ProductoTerminadoDeposito',
+          component: () => import('@/views/dashboard/Stock/ProductoTerminadoDeposito')
+        },
        /*  {
           name: 'Login',
           path: 'login',
