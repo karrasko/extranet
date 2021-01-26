@@ -37,7 +37,9 @@
                    range
                    scrollable
                   ></v-date-picker>
+                  
               </v-col>
+           
             <v-col
              cols="12"
              sm="6"
@@ -52,124 +54,8 @@
 
                    model: {{ dates }}
               </v-col>
-
-   
-
-        <!-- <v-col
-            cols="6"
-            sm="6"
-            md="6"
-        >
-            <base-material-card
-            color="success"
-            icon="mdi-calendar-today"
-            >
-           <template v-slot:after-heading>
-            <div class="display-1 mt-2 font-weight-light">
-              Fecha de entrada <span class="body-1">— seleccione dato</span>
-            </div>
-          </template>
-
-          <v-menu
-            ref="menu2"
-            v-model="menu2"
-            :close-on-content-click="false"
-            :return-value.sync="date"
-            transition="scale-transition"
-            min-width="290px"
-            offset-y
-          >
-            <template v-slot:activator="{ on }">
-              <v-text-field
-                v-model="date2"
-                color="secondary"
-                label="Select date"
-                prepend-icon="mdi-calendar-outline"
-                readonly
-                v-on="on"
-              />
-            </template>
-
-            <v-date-picker
-              v-model="date"
-              color="secondary"
-              landscape
-              scrollable
-            >
-              <v-spacer />
-              <v-btn
-                color="secondary"
-                large
-                @click="menu2 = false"
-              >
-                Cancel
-              </v-btn>
-            </v-date-picker>
-          </v-menu>
-        </base-material-card>
-      </v-col> -->
-      <!-- <v-col
-        cols="12"
-        sm="6"
-        md="6"
-      >
-        <base-material-card
-          color="success"
-          icon="mdi-calendar-today"
-        >
-          <template v-slot:after-heading>
-            <div class="display-1 mt-2 font-weight-light">
-              Fecha limite <span class="body-1">— seleccione dato</span>
-            </div>
-          </template>
-
-          <v-menu
-            ref="menu2"
-            v-model="menu2"
-            :close-on-content-click="false"
-            :return-value.sync="date"
-            transition="scale-transition"
-            min-width="290px"
-            offset-y
-          >
-            <template v-slot:activator="{ on }">
-              <v-text-field
-                v-model="date2"
-                color="secondary"
-                label="Select date"
-                prepend-icon="mdi-calendar-outline"
-                readonly
-                v-on="on"
-              />
-            </template>
-
-            <v-date-picker
-              v-model="date"
-              color="secondary"
-              landscape
-              scrollable
-            >
-              <v-spacer />
-              <v-btn
-                color="secondary"
-                large
-                @click="menu2 = false"
-              >
-                Cancel
-              </v-btn>
-            </v-date-picker>
-          </v-menu>
-        </base-material-card>
-      </v-col> -->
-
-
-
       </v-row>
   </template>
-
-    
-
-   
       <v-row class="text-center">
         <v-col cols="12">
          <v-simple-table fixed-header class="elevation-3">
@@ -215,21 +101,28 @@
 import axios from 'axios';
   export default {
     /* name: 'DashboardDataTables', */
-    name:'listarArticulos', mounted(){
+    name:'listarArticulos', 
+    
+    mounted(){
         this.obtenerArticulos();
+        this.guardarArticulo();
     },
+
       computed: {
       dateRangeText () {
         return this.dates.join(' ~ ')
         
       },
+      
     },
 data(){
 
 
         return{            
-            dates: ['2019-09-10', '2019-09-20'],
+            dates: ['2020-09-10', new Date().toISOString().substr(0,10)],
             fecha: new Date().toISOString().substr(0,10),
+            rangofecha:'2020-02-21',
+            rangofecha2:'2017-02-21',
             entradas:null,
             entrada:null,
             snackbar:false,
@@ -251,6 +144,7 @@ data(){
                 }
             ], */
         }
+        
 },
 /* no se ni lo que es el primero el sdegundo testado */
  /*  methods:{
@@ -281,7 +175,32 @@ data(){
 
         },
           
-        
+        guardarArticulo(){
+            var router = this.$router;
+           const formData = new FormData();
+           formData.append('rangofecha',this.dates);
+           /* formData.append('precio',this.articulo.precio);
+           formData.append('stock',this.articulo.stock); */
+           axios.post('http://localhost/apirest/articulos',formData)
+           .then(()=>{
+               router.push('/articulos');
+           })
+           .catch(function(error){
+        console.log(error);
+            });
+        },
+    
+        postdata(e){
+              this.axios.post('http://localhost:8081/ListarArticulos/',this.fecha)
+            .then(r => {
+               console.warn(result);
+              
+            })
+            .catch(function(error){
+                console.log(error);
+            })
+
+        },
     },
     
   }

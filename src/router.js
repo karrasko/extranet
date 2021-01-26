@@ -176,6 +176,16 @@ export default new Router({
           path: 'Stock/BulkCosmetica',
           component: () => import('@/views/dashboard/Stock/BulkCosmetica')
         },
+       {
+          name: 'Perfumes',
+          path: 'Stock/Perfumes',
+          component: () => import('@/views/dashboard/Stock/Perfumes')
+        },
+       {
+          name: 'StockRechazados',
+          path: 'Stock/StockRechazados',
+          component: () => import('@/views/dashboard/Stock/StockRechazados')
+        },
        /*  {
           name: 'Login',
           path: 'login',

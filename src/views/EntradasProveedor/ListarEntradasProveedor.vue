@@ -164,7 +164,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="entrada in entradas" :key="id">
+            <tr v-for="(entrada,index ) in entradas" :key="index">
                 <td>{{entrada.ITEMID}}</td>
                 <td>{{entrada.NAME}}</td>
                 <td>{{entrada.NAMEALIAS}}</td>
