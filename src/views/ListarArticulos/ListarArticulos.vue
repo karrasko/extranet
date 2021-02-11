@@ -20,14 +20,10 @@
         </div>
       </template>
 
-      
-
       <v-divider class="mt-3" />
 
       <template>
-
-      <v-row>
-
+        <v-row>
             <v-col 
              cols="12"
              sm="6"
@@ -36,48 +32,49 @@
                    v-model="dates"
                    range
                    scrollable
+                   
                   ></v-date-picker>
-                  
               </v-col>
-           
             <v-col
              cols="12"
              sm="6"
             >
-                  <v-text-field
-                   v-model="dates"
-                   label="Date range"
-                   prepend-icon="mdi-calendar"
-                   readonly
-                   
-                   ></v-text-field> 
+                <v-text-field
+                  v-model="dates"
+                  label="Date range"
+                  prepend-icon="mdi-calendar"
+                  readonly
+                  
+                  ></v-text-field> 
 
                    model: {{ dates }}
               </v-col>
       </v-row>
-  </template>
-      <v-row class="text-center">
+    </template>
+     <v-row class="text-center">
         <v-col cols="12">
          <v-simple-table fixed-header class="elevation-3">
           <template v-slot:default>
           <thead>
             <tr>
-            <th class="text-center">ITEMID</th>
-            <th class="text-center">NAME</th>
-            <th class="text-center">NAMEALIAS</th>
-            <th class="text-center">PDWFAMILYID</th>
-            <th class="text-center">FECHAMYSQL</th>
-            <th class="text-center">QTY</th>
+            <th class="text-center">CODIGO MIXER</th>
+            <th class="text-center">DESCRIPCION</th>
+            <th class="text-center">CODIGO CLIENTE</th>
+            <th class="text-center">FECHA</th>
+            <th class="text-center">FAMILIA</th>
+            <th class="text-center">CANTIDAD</th>
+            <th class="text-center">LOTE</th>
             </tr>
            </thead>
          <tbody>
             <tr v-for="(entrada, index) in entradas" :key="index">
                 <td>{{entrada.ITEMID}}</td>
                 <td>{{entrada.NAME}}</td>
-                <td>{{entrada.NAMEALIAS}}</td>
-                <td>{{entrada.PDWFAMILYID}}</td>
+                <td>{{entrada.NAMEALIAS}}</td> 
                 <td>{{entrada.FECHAMYSQL}}</td>
+                <td>{{entrada.PDWFAMILYID}}</td>
                 <td>{{entrada.QTY}}</td>
+                <td>{{entrada.INVENTBATCHID}}</td>
                 <td>
                     <!-- <v-btn :to="{name:'editarArticulo', params:{id:articulo.id}}" fab small color="primary"><v-icon>mdi-pencil</v-icon></v-btn>
                     <v-btn @click.stop="dialog=true" @click="id=articulo.id" fab small color="error"><v-icon>mdi-delete</v-icon></v-btn> -->
@@ -105,7 +102,7 @@ import axios from 'axios';
     
     mounted(){
         this.obtenerArticulos();
-        this.guardarArticulo();
+        /* this.guardarArticulo(); */
     },
 
       computed: {
@@ -175,22 +172,10 @@ data(){
 
         },
           
-        guardarArticulo(){
-            var router = this.$router;
-           const formData = new FormData();
-           formData.append('rangofecha',this.dates);
-           /* formData.append('precio',this.articulo.precio);
-           formData.append('stock',this.articulo.stock); */
-           axios.post('http://localhost/apirest/articulos',formData)
-           .then(()=>{
-               router.push('/articulos');
-           })
-           .catch(function(error){
-        console.log(error);
-            });
-        },
     
-        postdata(e){
+        /*,
+    
+         postdata(e){
               this.axios.post('http://localhost:8081/ListarArticulos/',this.fecha)
             .then(r => {
                console.warn(result);
@@ -200,7 +185,7 @@ data(){
                 console.log(error);
             })
 
-        },
+        }, */
     },
     
   }
