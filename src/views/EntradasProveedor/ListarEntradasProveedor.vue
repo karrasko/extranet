@@ -202,7 +202,7 @@ import axios from 'axios';
           }),
            created()
              {
-            axios.get('http://localhost/apirest/articulos.php')
+            axios.get('http://extranet.vipmixer.es/apirest/articulos.php')
             .then(r => {
                 this.entradas = r.data;
                console.log(this.entradas);
@@ -216,7 +216,7 @@ import axios from 'axios';
        getArticulos() {
         console.log(this.dates);
        axios
-         .get("http://localhost/apirest/articulos.php?dates=" + this.dates)
+         .get('http://extranet.vipmixer.es/apirest/articulos.php' + this.dates)
         .then((r) => {
           this.articulo = r.data;
         

@@ -18,7 +18,8 @@
         class="align-self-center"
         color="grey"
       >
-        <v-img src="https://demos.creative-tim.com/material-dashboard-pro/assets/img/faces/avatar.jpg" />
+        <!-- <v-img src='../src/assets/logo_azul.png'/> -->
+        <v-img src="https://www.mixerpack.es/wp-content/uploads/2018/11/logo_azul.png" />
       </v-list-item-avatar>
 
       <v-list-item-content>

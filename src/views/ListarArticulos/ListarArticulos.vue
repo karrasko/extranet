@@ -10,7 +10,7 @@
 
     <base-material-card
       color="indigo"
-      icon="mdi-amazon-alexa"
+      icon="mdi-factory"
       inline
       class="px-5 py-3"
     >
@@ -161,7 +161,7 @@ data(){
 
     methods:{
         obtenerArticulos(){
-            axios.get('http://localhost/apirest/articulos.php')
+            axios.get('http://extranet.vipmixer.es/apirest/articulos.php')
             .then(r => {
                 this.entradas = r.data;
                 console.log(this.entradas);

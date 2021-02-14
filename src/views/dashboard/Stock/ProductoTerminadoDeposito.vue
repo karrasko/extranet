@@ -10,13 +10,13 @@
 
     <base-material-card
       color="indigo"
-      icon="mdi-amazon-alexa"
+      icon="mdi-stocking"
       inline
       class="px-5 py-3"
     >
       <template v-slot:after-heading>
         <div class="display-2 font-weight-light">
-          ProductoTerminadoDeposito
+          Stock
         
         </div>
       </template>
@@ -33,19 +33,19 @@
                     tag="section"
                   >
                     <base-v-component
-                      heading="Data Tables"
+                      heading=" PYD"
                       link="components/data-tables"
                     />
 
                     <base-material-card
                       color="indigo"
-                      icon="mdi-vuetify"
+                      icon="mdi-table-network"
                       inline
                       class="px-5 py-3"
                     >
                       <template v-slot:after-heading>
                         <div class="display-2 font-weight-light">
-                          DataTables
+                          Producto Terminado Deposito
                         </div>
                       </template>
 
@@ -312,7 +312,7 @@ data(){
  
 
         obtenerTotales(){
-            axios.get('http://localhost/apirest/productoterminadodeposito.php')
+            axios.get('http://extranet.vipmixer.es/apirest/productoterminadodeposito.php')
             .then(r => {
                 this.ProductoTerminadoDeposito = r.data;
                 console.log(this.ProductoTerminadoDeposito);

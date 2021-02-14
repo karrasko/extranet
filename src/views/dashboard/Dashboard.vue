@@ -8,7 +8,7 @@
       <v-col cols="12">
         <base-material-card
           icon="mdi-earth"
-          title="Global Sales by Top Locations"
+          title="Pincipales Ventas Por Localización Geográfica"
         >
           <v-row>
             <v-col
@@ -101,11 +101,11 @@
           </template>
 
           <h4 class="card-title font-weight-light mt-2 ml-2">
-            Website Views
+            Ordenes Finalizadas
           </h4>
 
           <p class="d-inline-flex font-weight-light ml-2 mt-1">
-            Last Campaign Performance
+            Ultima Campaña
           </p>
 
           <template v-slot:actions>
@@ -168,7 +168,7 @@
           </template>
 
           <h4 class="card-title font-weight-light mt-2 ml-2">
-            Daily Sales
+            Producto Terminado
           </h4>
 
           <p class="d-inline-flex font-weight-light ml-2 mt-1">
@@ -179,7 +179,7 @@
               mdi-arrow-up
             </v-icon>
             <span class="green--text">55%</span>&nbsp;
-            increase in today's sales
+            Aumento en el día
           </p>
 
           <template v-slot:actions>
@@ -242,11 +242,11 @@
           </template>
 
           <h3 class="card-title font-weight-light mt-2 ml-2">
-            Completed Tasks
+            Stock Bulk
           </h3>
 
           <p class="d-inline-flex font-weight-light ml-2 mt-1">
-            Last Last Campaign Performance
+            Producto terminado en deposito
           </p>
 
           <template v-slot:actions>
@@ -268,8 +268,8 @@
       >
         <base-material-stats-card
           color="info"
-          icon="mdi-twitter"
-          title="Followers"
+          icon="mdi-robot-industrial"
+          title="Automatizaciones"
           value="+245"
           sub-icon="mdi-clock"
           sub-text="Just Updated"
@@ -284,7 +284,7 @@
         <base-material-stats-card
           color="primary"
           icon="mdi-poll"
-          title="Website Visits"
+          title="Producto Terminado"
           value="75.521"
           sub-icon="mdi-tag"
           sub-text="Tracked from Google Analytics"
@@ -298,8 +298,8 @@
       >
         <base-material-stats-card
           color="success"
-          icon="mdi-store"
-          title="Revenue"
+          icon="mdi-stocking"
+          title="Stocking"
           value="$ 34,245"
           sub-icon="mdi-calendar"
           sub-text="Last 24 Hours"
@@ -313,8 +313,8 @@
       >
         <base-material-stats-card
           color="orange"
-          icon="mdi-sofa"
-          title="Bookings"
+          icon="mdi-spray-bottle"
+          title="Bulk Cosmetica"
           value="184"
           sub-icon="mdi-alert"
           sub-icon-color="red"
@@ -344,7 +344,7 @@
         >
           <template v-slot:image>
             <v-img
-              src="https://demos.creative-tim.com/vue-material-dashboard-pro/img/card-2.jpg"
+              src="https://www.mixerpack.es/wp-content/uploads/2019/07/MixerPack-Crear-Perfume.jpg"
             />
           </template>
 
@@ -404,16 +404,16 @@
           </template>
 
           <v-card-title class="justify-center font-weight-light">
-            Cozy 5 Stars Apartment
+            Tu Perfume
           </v-card-title>
 
           <v-card-text class="body-1 text-center mb-3 font-weight-light grey--text">
-            The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the life in Barcelona.
+            El perfume fortalece el vínculo entre tu marca y el consumidor final. Solo uno de valores que aporta el perfume.
           </v-card-text>
 
           <template v-slot:actions>
             <div class="display-2 font-weight-light grey--text">
-              $899/night
+              99999/texto
             </div>
 
             <v-spacer />
@@ -421,7 +421,7 @@
             <span class="caption grey--text font-weight-light">
               <v-icon small>mdi-map-marker</v-icon>
 
-              Barcelona, Spain
+              Madrid, Spain
             </span>
           </template>
         </base-material-card>
@@ -438,7 +438,7 @@
         >
           <template v-slot:image>
             <v-img
-              src="https://demos.creative-tim.com/vue-material-dashboard-pro/img/card-3.jpg"
+              src="https://www.mixerpack.es/wp-content/uploads/2019/07/MixerPack-Servicio-Tecnico.jpg"
             />
           </template>
 
@@ -498,16 +498,16 @@
           </template>
 
           <v-card-title class="justify-center font-weight-light">
-            Office Studio
+            Proceso Productivo
           </v-card-title>
 
           <v-card-text class="body-1 text-center mb-3 font-weight-light grey--text">
-            The place is close to Metro Station and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the night life in London, UK.
+            Última tecnología industrial al servicio de tu marca. Conoce en qué consiste el proceso de creación y elaboración de perfumes.
           </v-card-text>
 
           <template v-slot:actions>
             <div class="display-2 font-weight-light grey--text">
-              $1.119/night
+              9999/texto
             </div>
 
             <v-spacer />
@@ -515,7 +515,7 @@
             <span class="caption grey--text font-weight-light">
               <v-icon small>mdi-map-marker</v-icon>
 
-              London, UK
+              Madrid, Spain
             </span>
           </template>
         </base-material-card>
@@ -532,7 +532,7 @@
         >
           <template v-slot:image>
             <v-img
-              src="https://demos.creative-tim.com/vue-material-dashboard-pro/img/card-1.jpg"
+              src="https://www.mixerpack.es/wp-content/uploads/2019/07/MixerPack-Branding-Packaging-perfumes-cosmeticos.jpg"
             />
           </template>
 
@@ -592,24 +592,25 @@
           </template>
 
           <v-card-title class="justify-center font-weight-light">
-            Beautiful Castle
+            Branding & Packaging
           </v-card-title>
 
           <v-card-text class="body-1 text-center mb-3 font-weight-light grey--text">
-            The place is close to Metro Station and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Milan.
+           De tus ideas, a realidades cosméticas altamente industrializables. El partner idóneo para generar valor y diferenciación a tu marca 
           </v-card-text>
 
           <template v-slot:actions>
             <div class="display-2 font-weight-light grey--text">
-              $459/night
+              9999/texto
             </div>
 
-            <v-spacer />
+            <v-spacer
+             />
 
             <span class="caption grey--text font-weight-light">
               <v-icon small>mdi-map-marker</v-icon>
 
-              Milan, Italy
+              Madrid, Spain
             </span>
           </template>
         </base-material-card>

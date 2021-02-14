@@ -3,7 +3,7 @@
     <h1
       class="font-weight-light mb-2"
       style="color:#3c4858; font-size:24px"
-      v-text="`Vuetify ${heading}`"
+      v-text="`Mixer & Pack${heading}`"
     />
 
     <span
@@ -12,7 +12,7 @@
     >
       Please checkout the
       <a
-        :href="`https://vuetifyjs.com/${link}`"
+        :href="`https://mixerpack.es`"
         rel="noopener"
         target="_blank"
         class="secondary--text"
