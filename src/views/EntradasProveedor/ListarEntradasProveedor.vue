@@ -38,44 +38,6 @@
                     Entradas Proveedor <span class="body-1">— Entradas Proveedor</span>
                   </div>
                 </template>
-                <!--   <v-menu
-                    ref="dates"
-                    v-model="dates"
-                    :close-on-content-click="false"
-                    :return-value.sync="dates"
-                    transition="scale-transition"
-                    min-width="290px"
-                    offset-y
-                  >
-                    <template v-slot:activator="{ on }">
-                      <v-text-field
-                        v-model="dates"
-                        color="secondary"
-                        label="Date Range"
-                        prepend-icon="mdi-calendar-outline"
-                        readonly 
-                        v-on="on"
-                      />
-                    </template>
-
-                    <v-date-picker
-                      v-model="dates"
-                      range
-                      color="secondary"
-                      landscape
-                      scrollable
-                      @change="getEntradasProveedor(dates)"
-                    >
-                      <v-spacer />
-                      <v-btn
-                        color="secondary"
-                        large
-                        @click="menu2 = false"
-                      >
-                        Cancel
-                      </v-btn>
-                    </v-date-picker>
-                  </v-menu> -->
 
             </base-material-card>
           </v-col>
@@ -83,34 +45,7 @@
 
      </template>
        <!--   <v-divider class="mt-3" /> -->
-      <template>
-        <v-row>
-            <v-col 
-             cols="12"
-             sm="6"
-              >
-              <v-date-picker
-                v-model="dates"
-                range
-                scrollable
-              ></v-date-picker>
-              </v-col>
-            <v-col
-             cols="12"
-             sm="6"
-            >
-                <v-text-field
-                  v-model="dates"
-                  label="Date range"
-                  prepend-icon="mdi-calendar"
-                  readonly
-                  
-                  ></v-text-field> 
-
-                   model: {{ dates }}
-              </v-col>
-      </v-row>
-    </template>
+     
      <!--  <v-divider class="mt-3" /> -->
       <v-data-table
         :headers="headers"
@@ -153,12 +88,7 @@ import axios from 'axios';
                 }
             ], */
          data(){
-                return{            
-                  
-                  entradas:null, 
-                  dates: ['2020-09-10', new Date().toISOString().substr(0,10)],
-                 //   menu:false,
-                }
+               //return entradas
                },
           data: () => ({
             headers: [
@@ -212,23 +142,24 @@ import axios from 'axios';
             })
             },
 
+     methods:{       
+          getArticulos() {
+            console.log(this.dates);
+          axios
+            .get('http://extranet.vipmixer.es/apirest/articulos.php' + this.dates)
+            .then((r) => {
+              this.articulo = r.data;
             
-       getArticulos() {
-        console.log(this.dates);
-       axios
-         .get('http://extranet.vipmixer.es/apirest/articulos.php' + this.dates)
-        .then((r) => {
-          this.articulo = r.data;
-        
-        })
-        .catch(function (error) {
-         console.log(error);
-      });
-  },
-  created() {
-    this.getArticulos("2020-01-05");
- }
+            })
+            .catch(function (error) {
+            console.log(error);
+          });
+        }
+       },
+///  created() {
+ //   this.getArticulos("2020-01-05");
+ // }
  
 
-  }
+}
 </script>
