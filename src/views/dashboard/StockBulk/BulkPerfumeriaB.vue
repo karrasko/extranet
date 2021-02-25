@@ -16,10 +16,12 @@
     >
       <template v-slot:after-heading>
         <div class="display-2 font-weight-light">
-         Stock
+         Stock Bulk
         
         </div>
       </template>
+
+      
 
       <v-divider class="mt-3" />
 
@@ -43,7 +45,7 @@
                     >
                       <template v-slot:after-heading>
                         <div class="display-2 font-weight-light">
-                          Stock Rechazados
+                          Bulk Perfumería 
                         </div>
                       </template>
 
@@ -61,7 +63,7 @@
 
                       <v-data-table
                         :headers="headers"
-                        :items="StockRechazados"
+                        :items="totales"
                         :search.sync="search"
                         :sort-by="['ITEMID', 'STOCK']"
                         :sort-desc="[false, true]"
@@ -88,13 +90,13 @@
             </tr>
            </thead>
          <tbody>
-            <tr v-for="(StockRechazados, index) in StockRechazados" :key="index">
-                <td>{{StockRechazados.ITEMID}}</td>
-                <td>{{StockRechazados.NAME}}</td>
-                <td>{{StockRechazados.NAMEALIAS}}</td>
-                <td>{{StockRechazados.PDWSUBFAMILYID}}</td>
-                <td class="dt-number">{{StockRechazados.STOCK}}</td>
-                <td>{{StockRechazados.INVENTSTATUSID}}</td>
+            <tr v-for="(totales, index) in totales" :key="index">
+                <td>{{totales.ITEMID}}</td>
+                <td>{{totales.NAME}}</td>
+                <td>{{totales.NAMEALIAS}}</td>
+                <td>{{totales.PDWSUBFAMILYID}}</td>
+                <td class="dt-number">{{totales.STOCK}}</td>
+                <td>{{totales.INVENTSTATUSID}}</td>
            </tr>
                  
          </tbody>   
@@ -115,7 +117,7 @@
 import axios from 'axios';
   export default {
 
-          name:'StockRechazados', 
+          name:'TotalesB', 
 
         /*   mounted(){
           
@@ -124,7 +126,7 @@ import axios from 'axios';
           data(){
                 return{            
                   
-                    StockRechazados:null, 
+                    totales:null, 
                   
                 }
                },
@@ -147,26 +149,33 @@ import axios from 'axios';
                 value: 'PDWSUBFAMILYID'
               },
               {
+                text: 'LOTE',
+                value: 'INVENTBATCHID'
+              },
+              {
+                text: 'ESTADO',
+                value: 'INVENTSTATUSID'
+              },
+              {
                 text: 'STOCK',
                 value: 'STOCK'
               },
-              {
-              //  sortable: false,
-                text: 'ESTADO',
-                value: 'INVENTSTATUSID'
+             {
+                text: 'FECHA DE DISPONIBILIDAD',
+                value: 'FECHAMYSQL'
               }
             ],
             
-            StockRechazados: [],
+            totales: [],
             search: undefined
             
           }),
            created()
              {
-            axios.get('http://extranet.vipmixer.es/apirest/stockrechazados.php')
+            axios.get('http://localhost/apirest/bulkperfumeriab.php')
             .then(r => {
-                this.StockRechazados = r.data;
-                console.log(this.StockRechazados);
+                this.totales = r.data;
+                console.log(this.totales);
             })
             .catch(function(error){
                 console.log(error);
@@ -174,10 +183,10 @@ import axios from 'axios';
             },
               /* methods:{
                   obtenerTotales(){
-                      axios.get('http://localhost/apirest/StockRechazados.php')
+                      axios.get('http://localhost/apirest/totales.php')
                       .then(r => {
-                          this.StockRechazados = r.data;
-                          console.log(this.StockRechazados);
+                          this.totales = r.data;
+                          console.log(this.totales);
                       })
                       .catch(function(error){
                           console.log(error);

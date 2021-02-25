@@ -37,7 +37,7 @@
                     />
 
                     <base-material-card
-                      color="indigo"
+                      color="success"
                       icon="mdi-table-network"
                       inline
                       class="px-5 py-3"

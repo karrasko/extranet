@@ -13,7 +13,7 @@
           </div>
      </div>
 
-         <v-form>
+      <v-form>
             <v-container>
               <v-row>
                 <v-col cols="12" sm="6" md="3">
@@ -42,7 +42,7 @@
 
     <base-material-card
       color="indigo"
-      icon="mdi-truck-delivery"
+      icon="mdi-factory"
       inline
       class="px-5 py-3"
     >
@@ -54,7 +54,7 @@
 
       <v-divider class="mt-3" />
 
-    <template>
+ <template>
           <v-row>
              <v-col
                 cols="12"
@@ -63,7 +63,7 @@
                 >
               <base-material-card
                 color="success"
-                icon="mdi-table-network"
+                icon="mdi-calendar-today"
               >
                 <template v-slot:after-heading>
                   <div class="display-1 mt-2 font-weight-light">
@@ -76,98 +76,36 @@
         </v-row>
 
      </template>
+        <template>
+          <v-row>
+              <v-col 
+                cols="12"
+                sm="6"
+                >
+                  <v-date-picker
+                    v-model="dates"
+                    range
+                    scrollable
+                   @change="obtenerArticulos(dates)"
+                  ></v-date-picker>
+               </v-col>
 
-      <template>
+                <v-col
+                cols="12"
+                sm="6"
+                >
+                  <v-text-field
+                  v-model="dates"
+                  label="Date range"
+                  prepend-icon="mdi-calendar"
+                  readonly
+                  ></v-text-field> 
 
-        <v-container
-          id="extended-forms"
-          fluid
-          tag="section"
-        >
-        <base-v-component
-          heading=""
-          link="components/date-pickers"
-        />
-
-        <v-row>
-            <v-col 
-              cols="12"
-              sm="6"
-              md="4"
-              >
-                    <base-material-card
-                    color="success"
-                    icon="mdi-calendar-today"
-                    >
-
-                   <template v-slot:after-heading>
-                    <div class="display-1 mt-2 font-weight-light">
-                       Fecha<span class="body-1">— busqueda</span>
-                    </div>
-                  </template>
-
-                    <v-menu 
-                       ref="menu"
-                       v-model="menu"
-                       :close-on-content-click="false"
-                       :return-value.sync="dates"
-                       transition="scale-transition"
-                       min-width="290px"
-                       offset-y
-                    >
-                     <template v-slot:activator="{ on }">
-                      <v-text-field
-                      
-                        v-model="dates"
-                        color="secondary"
-                        label="Select date"
-                        prepend-icon="mdi-calendar-outline"
-                        readonly
-                        v-on="on"
-                        />
-                        </template>
-
-                        <v-date-picker
-                          v-model="dates"
-                          color="secondary"
-                          landscape
-                          elevation="5"
-                          locale="es-es"
-                          range
-                          scrollable
-                          @change="obtenerArticulos(dates)"
-                          >
-                        </v-date-picker>
-                    
-                    </v-menu>
-                     
-                  </base-material-card>
-                  
-              </v-col>
-
-              <v-col
-              cols="12"
-              sm="6"
-              >
-
-                 
-      model: {{ dates }}
-
-              </v-col>  
-          </v-row>
-        </v-container>
-      </template>
-            <v-text-field
-                    v-model="search"
-                    append-icon="mdi-magnify"
-                    class="ml-auto"
-                    label="Search"
-                    hide-details
-                    single-line
-                    style="max-width: 250px;"
-                  />
-              
-          <v-data-table
+                  model: {{ dates }}
+                 </v-col>
+           </v-row>
+        </template>
+     <v-data-table
         :headers="headers"
         :items="entradas" 
         :search.sync="search"
@@ -175,7 +113,7 @@
         :sort-desc="[false, true]"
         multi-sort
       />
-        <!-- <v-row>
+        <v-row>
       <v-col>
         <form v-on:submit.prevent="obtenerArticulos()">
           <v-text-field
@@ -211,7 +149,7 @@
           </v-card-actions>
         </form>
       </v-col>
-    </v-row> -->
+    </v-row>
     </base-material-card>
   </v-container>
  </v-container>
@@ -226,23 +164,15 @@ import axios from 'axios';
     data: {
         category:'category text',
        },
-  data: () => ({
-            dates:['2021-02-18', new Date().toISOString().substr(0,10)],   
-     }),
-
-
     computed: {
       dateRangeText () {
         return this.dates.join(' ~ ');
       },
     },
-  
-
     updated() {
         console.log(this.dates);
         axios
-      //  .get("http://localhost/apirest/terminados.php")
-           .get("http://localhost/apirest/articulos.php?dates=" + this.dates)
+          .get("http://localhost/apirest/articulos.php?dates=" + this.dates)
           .then((r) => {
             this.entradas = r.data;
              console.log(this.entradas);
@@ -295,12 +225,11 @@ import axios from 'axios';
                 value: 'actions'
               } */
             ],
-           dates:['2021-02-18', new Date().toISOString().substr(0,10)],
+           dates: ['2020-12-10', new Date().toISOString().substr(0,10)],
             entradas: [],
              num: 0,
               changed: [],
               inputed: [],
-              menu: false,
             search: undefined
           }),
 
@@ -339,7 +268,7 @@ import axios from 'axios';
        ///     created() {
        //    this.getArticulos("2020-01-05");
         //    }, 
-      methods:{
+    methods:{
         obtenerArticulos(){
           console.log(this.dates);
           // axios.get('http://extranet.vipmixer.es/apirest/articulos.php?dates="2020-01-09,2021-01-31"')
@@ -374,7 +303,7 @@ import axios from 'axios';
   //   this.articulo = await data;
   //   console.log(this.articulo.descripcion);
   // },
-   
+       
    
     updateCategory(event, category) {
       console.log(event, category);
@@ -388,13 +317,7 @@ import axios from 'axios';
       this.inputed.push(value)
       },
     }
-,
-
-      created() {
-      this.getArticulos("2020-02-02,2020-09-02");
-           }, 
-
-}
+ }
 
    
 </script>

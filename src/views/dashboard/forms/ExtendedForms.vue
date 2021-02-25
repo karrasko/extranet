@@ -4,10 +4,10 @@
     fluid
     tag="section"
   >
-    <base-v-component
+    <!-- <base-v-component
       heading="Date Pickers"
       link="components/date-pickers"
-    />
+    /> -->
 
     <v-row>
       <v-col
@@ -34,7 +34,7 @@
             min-width="290px"
             offset-y
           >
-            <template v-slot:activator="{ on }">
+            <template v-slot:activator="{ on}">
               <v-text-field
                 v-model="date"
                 color="secondary"
@@ -42,7 +42,7 @@
                 prepend-icon="mdi-calendar-outline"
                 readonly
                 v-on="on"
-              />
+              /> 
             </template>
 
             <v-date-picker

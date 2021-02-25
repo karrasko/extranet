@@ -42,7 +42,7 @@
 
     <base-material-card
       color="indigo"
-      icon="mdi-truck-delivery"
+      icon="mdi-factory"
       inline
       class="px-5 py-3"
     >
@@ -54,7 +54,7 @@
 
       <v-divider class="mt-3" />
 
-    <template>
+ <template>
           <v-row>
              <v-col
                 cols="12"
@@ -63,7 +63,7 @@
                 >
               <base-material-card
                 color="success"
-                icon="mdi-table-network"
+                icon="mdi-calendar-today"
               >
                 <template v-slot:after-heading>
                   <div class="display-1 mt-2 font-weight-light">
@@ -85,7 +85,7 @@
           tag="section"
         >
         <base-v-component
-          heading=""
+          heading="Date Pickers"
           link="components/date-pickers"
         />
 
@@ -102,7 +102,7 @@
 
                    <template v-slot:after-heading>
                     <div class="display-1 mt-2 font-weight-light">
-                       Fecha<span class="body-1">— busqueda</span>
+                       Date Picker <span class="body-1">— labeled</span>
                     </div>
                   </template>
 
@@ -115,7 +115,7 @@
                        min-width="290px"
                        offset-y
                     >
-                     <template v-slot:activator="{ on }">
+                     <template v-slot:activator="{on}">
                       <v-text-field
                       
                         v-model="dates"
@@ -136,38 +136,24 @@
                           range
                           scrollable
                           @change="obtenerArticulos(dates)"
-                          >
-                        </v-date-picker>
-                    
+                        ></v-date-picker>
+
                     </v-menu>
-                     
                   </base-material-card>
-                  
               </v-col>
 
               <v-col
               cols="12"
               sm="6"
+             
               >
-
-                 
-      model: {{ dates }}
-
-              </v-col>  
+                model: {{ dates }}
+              </v-col>
           </v-row>
         </v-container>
       </template>
-            <v-text-field
-                    v-model="search"
-                    append-icon="mdi-magnify"
-                    class="ml-auto"
-                    label="Search"
-                    hide-details
-                    single-line
-                    style="max-width: 250px;"
-                  />
-              
-          <v-data-table
+
+     <v-data-table
         :headers="headers"
         :items="entradas" 
         :search.sync="search"
@@ -226,30 +212,23 @@ import axios from 'axios';
     data: {
         category:'category text',
        },
-  data: () => ({
-            dates:['2021-02-18', new Date().toISOString().substr(0,10)],   
-     }),
-
-
     computed: {
       dateRangeText () {
         return this.dates.join(' ~ ');
       },
     },
-  
-
     updated() {
-        console.log(this.dates);
-        axios
-      //  .get("http://localhost/apirest/terminados.php")
-           .get("http://localhost/apirest/articulos.php?dates=" + this.dates)
-          .then((r) => {
-            this.entradas = r.data;
-             console.log(this.entradas);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+      //   console.log(this.dates);
+      //   axios
+      // //  .get("http://localhost/apirest/terminados.php")
+      //      .get("http://localhost/apirest/articulos.php?dates=" + this.dates)
+      //     .then((r) => {
+      //       this.entradas = r.data;
+      //        console.log(this.entradas);
+      //     })
+      //     .catch(function (error) {
+      //       console.log(error);
+      //     });
        },
    mounted(){
      // this.obtenerArticulos();
@@ -295,7 +274,7 @@ import axios from 'axios';
                 value: 'actions'
               } */
             ],
-           dates:['2021-02-18', new Date().toISOString().substr(0,10)],
+           dates: [],
             entradas: [],
              num: 0,
               changed: [],
@@ -374,7 +353,7 @@ import axios from 'axios';
   //   this.articulo = await data;
   //   console.log(this.articulo.descripcion);
   // },
-   
+       
    
     updateCategory(event, category) {
       console.log(event, category);
@@ -388,13 +367,7 @@ import axios from 'axios';
       this.inputed.push(value)
       },
     }
-,
-
-      created() {
-      this.getArticulos("2020-02-02,2020-09-02");
-           }, 
-
-}
+ }
 
    
 </script>

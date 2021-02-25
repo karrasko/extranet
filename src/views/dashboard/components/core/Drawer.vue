@@ -93,12 +93,12 @@
           to: '/'
         },
          {
-          icon: 'mdi-factory',
+          icon: 'mdi-truck-delivery',
           title: 'EntradasProveedor',
           to: '/ListarEntradasProveedor'
         },
          {
-          icon: 'mdi-factory',
+          icon: 'mdi-truck-delivery',
           title: 'articulos',
           to: '/ListarArticulos'
         },
@@ -138,6 +138,29 @@
             {
               title: 'StockRechazados',
               to: 'StockRechazados'
+            }
+            ]
+        },
+        {
+          group: '/StockBulk',
+          icon: 'mdi-stocking',
+          title: 'StockBulk',
+          children: [
+            {
+              title: 'TotalesB',
+              to: 'TotalesB'
+            },
+            {
+              title: 'BulkPerfumeriaB',
+              to: 'BulkPerfumeriaB'
+            },
+            {
+              title: 'BulkCosmeticaB',
+              to: 'BulkCosmeticaB'
+            },
+            {
+              title: 'PerfumesB',
+              to: 'PerfumesB'
             }
             ]
         },
@@ -221,29 +244,29 @@
         //     }
         //   ]
         // },
-        // {
-        //   group: '/forms',
-        //   icon: 'mdi-clipboard-outline',
-        //   title: 'forms',
-        //   children: [
-        //     {
-        //       title: 'rforms',
-        //       to: 'regular'
-        //     },
-        //     {
-        //       title: 'eforms',
-        //       to: 'extended'
-        //     },
-        //     {
-        //       title: 'vforms',
-        //       to: 'validation'
-        //     },
-        //     {
-        //       title: 'wizard',
-        //       to: 'wizard'
-        //     }
-        //   ]
-        // },
+        {
+          group: '/forms',
+          icon: 'mdi-clipboard-outline',
+          title: 'forms',
+          children: [
+            {
+              title: 'rforms',
+              to: 'regular'
+            },
+            {
+              title: 'eforms',
+              to: 'extended'
+            },
+            {
+              title: 'vforms',
+              to: 'validation'
+            },
+            {
+              title: 'wizard',
+              to: 'wizard'
+            }
+          ]
+        },
         // {
         //   group: '/tables',
         //   icon: 'mdi-grid',
