@@ -17,7 +17,6 @@
       <template v-slot:after-heading>
         <div class="display-2 font-weight-light">
           Stock
-        
         </div>
       </template>
 
@@ -45,7 +44,7 @@
                     >
                       <template v-slot:after-heading>
                         <div class="display-2 font-weight-light">
-                          Producto Terminado Deposito
+                          Componente
                         </div>
                       </template>
 
@@ -229,15 +228,16 @@
             </tr>
            </thead>
          <tbody>
-            <tr v-for="(ProductoTerminadoDeposito, index) in ProductoTerminadoDepositado" :key="index">
-                <td>{{ProductoTerminado.ITEMID}}</td>
-                <td>{{ProductoTerminado.NAME}}</td>
-                <td>{{ProductoTerminado.NAMEALIAS}}</td>
-                <td>{{ProductoTerminado.PDWSUBFAMILYID}}</td>
-                <td>{{ProductoTerminado.STOCK}}</td>
-                <td>{{ProductoTerminado.INVENTSTATUSID}}</td>
-           </tr>
-                 
+            <tr v-for="(componente, index) in componente" :key="index">
+                <td>{{componente.ITEMID}}</td>
+                <td>{{componente.NAME}}</td>
+                <td>{{componente.NAMEALIAS}}</td>
+                <td>{{componente.PDWSUBFAMILYID}}</td>
+                <td>{{componente.STOCK}}</td>
+                <td>{{componente.INVENTSTATUSID}}</td>
+                <td>
+                </td>
+            </tr>
          </tbody>   
         </template>
         </v-simple-table>
@@ -256,10 +256,7 @@
 import axios from 'axios';
   export default {
     /* name: 'DashboardDataTables', */
-    name:'ProductoTerminadoDeposito', 
-    
-    mounted(){
-     /*  this.dividirpalets(); */
+    name:'Componente', mounted(){
         this.obtenerTotales();
     } ,/*
       computed: {
@@ -269,9 +266,11 @@ import axios from 'axios';
       },
     }, */
 data(){
+
+
         return{            
           /*   dates: ['2019-09-10', '2019-09-20'], */
-             ProductoTerminadoDeposito:null, 
+             componente:null, 
           /*   index:null,
             snackbar:false, */
            /*  date: '',
@@ -310,21 +309,22 @@ data(){
 
 
     methods:{
-
- 
-
         obtenerTotales(){
-            axios.get('http://extranet.vipmixer.es/apirest/productoterminadodeposito.php')
+            axios.get('http://extranet.vipmixer.es/apirest/componente.php')
             .then(r => {
-                this.ProductoTerminadoDeposito = r.data;
-                console.log(this.ProductoTerminadoDeposito);
+                this.componente = r.data;
+                console.log(this.componente);
             })
             .catch(function(error){
                 console.log(error);
             })
 
-        }
+        },
+          
+        
+    },
+    
   }
-  }
+
    
 </script>

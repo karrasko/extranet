@@ -45,7 +45,7 @@
                     >
                       <template v-slot:after-heading>
                         <div class="display-2 font-weight-light">
-                          Bulk Perfumería 
+                          Stock Bulk Totales
                         </div>
                       </template>
 
@@ -117,7 +117,7 @@
 import axios from 'axios';
   export default {
 
-          name:'BulkPerfumeria', 
+          name:'TotalesB', 
 
         /*   mounted(){
           
@@ -172,7 +172,7 @@ import axios from 'axios';
           }),
            created()
              {
-            axios.get('http://localhost/apirest/bulkperfumeriab.php')
+            axios.get('http://localhost/apirest/totalesbulk.php')
             .then(r => {
                 this.totales = r.data;
                 console.log(this.totales);

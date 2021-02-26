@@ -122,7 +122,10 @@
             {
               title: 'ProductoTerminadoDeposito',
               to: 'ProductoTerminadoDeposito'
-            },
+            },{
+             title: 'TotalesB',
+               to: 'TotalesB'
+             },
             {
               title: 'BulkPerfumeria',
               to: 'BulkPerfumeria'
@@ -141,29 +144,29 @@
             }
             ]
         },
-        {
-          group: '/StockBulk',
-          icon: 'mdi-stocking',
-          title: 'StockBulk',
-          children: [
-            {
-              title: 'TotalesB',
-              to: 'TotalesB'
-            },
-            {
-              title: 'BulkPerfumeriaB',
-              to: 'BulkPerfumeriaB'
-            },
-            {
-              title: 'BulkCosmeticaB',
-              to: 'BulkCosmeticaB'
-            },
-            {
-              title: 'PerfumesB',
-              to: 'PerfumesB'
-            }
-            ]
-        },
+        // {
+        //   group: '/StockBulk',
+        //   icon: 'mdi-stocking',
+        //   title: 'StockBulk',
+        //   children: [
+        //     {
+        //       title: 'TotalesB',
+        //       to: 'TotalesB'
+        //     },
+        //     {
+        //       title: 'BulkPerfumeriaB',
+        //       to: 'BulkPerfumeriaB'
+        //     },
+        //     {
+        //       title: 'BulkCosmeticaB',
+        //       to: 'BulkCosmeticaB'
+        //     },
+        //     {
+        //       title: 'PerfumesB',
+        //       to: 'PerfumesB'
+        //     }
+        //     ]
+        // },
         // {
         //   group: '/pages',
         //   icon: 'mdi-image',

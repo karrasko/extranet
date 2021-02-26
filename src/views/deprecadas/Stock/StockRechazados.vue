@@ -16,12 +16,10 @@
     >
       <template v-slot:after-heading>
         <div class="display-2 font-weight-light">
-         Stock Bulk
+         Stock
         
         </div>
       </template>
-
-      
 
       <v-divider class="mt-3" />
 
@@ -45,7 +43,7 @@
                     >
                       <template v-slot:after-heading>
                         <div class="display-2 font-weight-light">
-                          Bulk Perfumería 
+                          Stock Rechazados
                         </div>
                       </template>
 
@@ -63,7 +61,7 @@
 
                       <v-data-table
                         :headers="headers"
-                        :items="totales"
+                        :items="StockRechazados"
                         :search.sync="search"
                         :sort-by="['ITEMID', 'STOCK']"
                         :sort-desc="[false, true]"
@@ -90,13 +88,13 @@
             </tr>
            </thead>
          <tbody>
-            <tr v-for="(totales, index) in totales" :key="index">
-                <td>{{totales.ITEMID}}</td>
-                <td>{{totales.NAME}}</td>
-                <td>{{totales.NAMEALIAS}}</td>
-                <td>{{totales.PDWSUBFAMILYID}}</td>
-                <td class="dt-number">{{totales.STOCK}}</td>
-                <td>{{totales.INVENTSTATUSID}}</td>
+            <tr v-for="(StockRechazados, index) in StockRechazados" :key="index">
+                <td>{{StockRechazados.ITEMID}}</td>
+                <td>{{StockRechazados.NAME}}</td>
+                <td>{{StockRechazados.NAMEALIAS}}</td>
+                <td>{{StockRechazados.PDWSUBFAMILYID}}</td>
+                <td class="dt-number">{{StockRechazados.STOCK}}</td>
+                <td>{{StockRechazados.INVENTSTATUSID}}</td>
            </tr>
                  
          </tbody>   
@@ -117,7 +115,7 @@
 import axios from 'axios';
   export default {
 
-          name:'BulkPerfumeria', 
+          name:'StockRechazados', 
 
         /*   mounted(){
           
@@ -126,7 +124,7 @@ import axios from 'axios';
           data(){
                 return{            
                   
-                    totales:null, 
+                    StockRechazados:null, 
                   
                 }
                },
@@ -149,33 +147,26 @@ import axios from 'axios';
                 value: 'PDWSUBFAMILYID'
               },
               {
-                text: 'LOTE',
-                value: 'INVENTBATCHID'
-              },
-              {
-                text: 'ESTADO',
-                value: 'INVENTSTATUSID'
-              },
-              {
                 text: 'STOCK',
                 value: 'STOCK'
               },
-             {
-                text: 'FECHA DE DISPONIBILIDAD',
-                value: 'FECHAMYSQL'
+              {
+              //  sortable: false,
+                text: 'ESTADO',
+                value: 'INVENTSTATUSID'
               }
             ],
             
-            totales: [],
+            StockRechazados: [],
             search: undefined
             
           }),
            created()
              {
-            axios.get('http://localhost/apirest/bulkperfumeriab.php')
+            axios.get('http://extranet.vipmixer.es/apirest/stockrechazados.php')
             .then(r => {
-                this.totales = r.data;
-                console.log(this.totales);
+                this.StockRechazados = r.data;
+                console.log(this.StockRechazados);
             })
             .catch(function(error){
                 console.log(error);
@@ -183,10 +174,10 @@ import axios from 'axios';
             },
               /* methods:{
                   obtenerTotales(){
-                      axios.get('http://localhost/apirest/totales.php')
+                      axios.get('http://localhost/apirest/StockRechazados.php')
                       .then(r => {
-                          this.totales = r.data;
-                          console.log(this.totales);
+                          this.StockRechazados = r.data;
+                          console.log(this.StockRechazados);
                       })
                       .catch(function(error){
                           console.log(error);

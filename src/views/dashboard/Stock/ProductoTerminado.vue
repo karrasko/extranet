@@ -265,7 +265,8 @@
 import axios from 'axios';
   export default {
     /* name: 'DashboardDataTables', */
-    name:'ProductoTerminado', mounted(){
+    name:'ProductoTerminado', 
+    mounted(){
      /*  this.dividirpalets(); */
         this.obtenerTotales();
     } ,/*

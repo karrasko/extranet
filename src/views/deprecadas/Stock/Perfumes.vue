@@ -16,7 +16,7 @@
     >
       <template v-slot:after-heading>
         <div class="display-2 font-weight-light">
-          Stock
+         Stock
         
         </div>
       </template>
@@ -45,7 +45,7 @@
                     >
                       <template v-slot:after-heading>
                         <div class="display-2 font-weight-light">
-                          Producto Terminado Deposito
+                          Perfumes
                         </div>
                       </template>
 
@@ -224,18 +224,22 @@
             <th class="text-center">DESCRIPCION</th>
             <th class="text-center">CODIGO CLIENTE</th>
             <th class="text-center">FAMILIA</th>
-            <th class="text-center">STOCK</th>
+            <th class="text-center">LOTE</th>
             <th class="text-center">ESTADO</th>
+            <th class="text-center">STOCK</th>
+            <th class="text-center">FECHA DE DISPONIBILIDAD</th>
             </tr>
            </thead>
          <tbody>
-            <tr v-for="(ProductoTerminadoDeposito, index) in ProductoTerminadoDepositado" :key="index">
-                <td>{{ProductoTerminado.ITEMID}}</td>
-                <td>{{ProductoTerminado.NAME}}</td>
-                <td>{{ProductoTerminado.NAMEALIAS}}</td>
-                <td>{{ProductoTerminado.PDWSUBFAMILYID}}</td>
-                <td>{{ProductoTerminado.STOCK}}</td>
-                <td>{{ProductoTerminado.INVENTSTATUSID}}</td>
+            <tr v-for="(Perfumes, index) in Perfumes" :key="index">
+                <td>{{Perfumes.ITEMID}}</td>
+                <td>{{Perfumes.NAME}}</td>
+                <td>{{Perfumes.NAMEALIAS}}</td>
+                <td>{{Perfumes.PDWSUBFAMILYID}}</td>
+                <td>{{Perfumes.INVENTBATCHID}}</td>
+                <td>{{Perfumes.INVENTSTATUSID}}</td>
+                <td class="dt-number">{{Perfumes.STOCK}}</td>
+                <td>{{Perfumes.FECHAMYSQL}}</td>
            </tr>
                  
          </tbody>   
@@ -256,9 +260,7 @@
 import axios from 'axios';
   export default {
     /* name: 'DashboardDataTables', */
-    name:'ProductoTerminadoDeposito', 
-    
-    mounted(){
+    name:'Perfumes', mounted(){
      /*  this.dividirpalets(); */
         this.obtenerTotales();
     } ,/*
@@ -268,10 +270,27 @@ import axios from 'axios';
         
       },
     }, */
+
+    /*
+      computed: {
+      dateRangeText () {
+        return this.dates.join(' ~ ')
+        
+      },
+    }, */
+   
+      /*computed:  { 
+        dividirpalets(){
+         
+                let stock1 = Perfumes.STOCK;
+                 return this.stock1;
+                 console.log (this.stock1)
+                  },  
+      }, */
 data(){
         return{            
           /*   dates: ['2019-09-10', '2019-09-20'], */
-             ProductoTerminadoDeposito:null, 
+             Perfumes:null, 
           /*   index:null,
             snackbar:false, */
            /*  date: '',
@@ -314,10 +333,10 @@ data(){
  
 
         obtenerTotales(){
-            axios.get('http://extranet.vipmixer.es/apirest/productoterminadodeposito.php')
+            axios.get('http://extranet.vipmixer.es/apirest/perfumes.php')
             .then(r => {
-                this.ProductoTerminadoDeposito = r.data;
-                console.log(this.ProductoTerminadoDeposito);
+                this.Perfumes = r.data;
+                console.log(this.Perfumes);
             })
             .catch(function(error){
                 console.log(error);

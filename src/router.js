@@ -185,27 +185,32 @@ export default new Router({
           path: 'Stock/StockRechazados',
           component: () => import('@/views/dashboard/Stock/StockRechazados')
         },
-        // StockBulk
-       {
-        name: 'TotalesB',
-        path: 'StockBulk/TotalesB',
-        component: () => import('@/views/dashboard/StockBulk/TotalesB')
-        },
         {
-          name: 'BulkPerfumeriaB',
-          path: 'StockBulk/BulkPerfumeriaB',
-          component: () => import('@/views/dashboard/StockBulk/BulkPerfumeriaB')
+          name: 'TotalesB',
+          path: 'Stock/TotalesB',
+          component: () => import('@/views/dashboard/Stock/TotalesB')
         },
-        {
-          name: 'BulkCosmeticaB',
-          path: 'StockBulk/BulkCosmeticaB',
-          component: () => import('@/views/dashboard/StockBulk/BulkCosmeticaB')
-        },
-        {
-          name: 'PerfumesB',
-          path: 'StockBulk/PerfumesB',
-          component: () => import('@/views/dashboard/StockBulk/PerfumesB')
-        },
+      //   // StockBulk
+      //  {
+      //   name: 'TotalesB',
+      //   path: 'StockBulk/TotalesB',
+      //   component: () => import('@/views/dashboard/StockBulk/TotalesB')
+      //   },
+      //   {
+      //     name: 'BulkPerfumeriaB',
+      //     path: 'StockBulk/BulkPerfumeriaB',
+      //     component: () => import('@/views/dashboard/StockBulk/BulkPerfumeriaB')
+      //   },
+      //   {
+      //     name: 'BulkCosmeticaB',
+      //     path: 'StockBulk/BulkCosmeticaB',
+      //     component: () => import('@/views/dashboard/StockBulk/BulkCosmeticaB')
+      //   },
+      //   {
+      //     name: 'PerfumesB',
+      //     path: 'StockBulk/PerfumesB',
+      //     component: () => import('@/views/dashboard/StockBulk/PerfumesB')
+      //   },
        /*  {
           name: 'Login',
           path: 'login',

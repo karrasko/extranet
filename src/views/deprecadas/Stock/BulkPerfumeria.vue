@@ -45,7 +45,7 @@
                     >
                       <template v-slot:after-heading>
                         <div class="display-2 font-weight-light">
-                          Producto Terminado Deposito
+                          Bulk Perfumeria
                         </div>
                       </template>
 
@@ -224,18 +224,22 @@
             <th class="text-center">DESCRIPCION</th>
             <th class="text-center">CODIGO CLIENTE</th>
             <th class="text-center">FAMILIA</th>
-            <th class="text-center">STOCK</th>
+            <th class="text-center">LOTE</th>
             <th class="text-center">ESTADO</th>
+            <th class="text-center">STOCK</th>
+            <th class="text-center">FECHA DE DISPONIBILIDAD</th>
             </tr>
            </thead>
          <tbody>
-            <tr v-for="(ProductoTerminadoDeposito, index) in ProductoTerminadoDepositado" :key="index">
-                <td>{{ProductoTerminado.ITEMID}}</td>
-                <td>{{ProductoTerminado.NAME}}</td>
-                <td>{{ProductoTerminado.NAMEALIAS}}</td>
-                <td>{{ProductoTerminado.PDWSUBFAMILYID}}</td>
-                <td>{{ProductoTerminado.STOCK}}</td>
-                <td>{{ProductoTerminado.INVENTSTATUSID}}</td>
+            <tr v-for="(BulkPerfumeria, index) in BulkPerfumeria" :key="index">
+                <td>{{BulkPerfumeria.ITEMID}}</td>
+                <td>{{BulkPerfumeria.NAME}}</td>
+                <td>{{BulkPerfumeria.NAMEALIAS}}</td>
+                <td>{{BulkPerfumeria.PDWSUBFAMILYID}}</td>
+                <td>{{BulkPerfumeria.INVENTSTBATCHID}}</td>
+                <td>{{BulkPerfumeria.INVENTSTATUSID}}</td>
+                <td class="dt-number">{{BulkPerfumeria.STOCK}}</td>
+                <td>{{BulkPerfumeria.FECHAMYSQL}}</td>
            </tr>
                  
          </tbody>   
@@ -256,9 +260,7 @@
 import axios from 'axios';
   export default {
     /* name: 'DashboardDataTables', */
-    name:'ProductoTerminadoDeposito', 
-    
-    mounted(){
+    name:'BulkPerfumeria', mounted(){
      /*  this.dividirpalets(); */
         this.obtenerTotales();
     } ,/*
@@ -268,10 +270,27 @@ import axios from 'axios';
         
       },
     }, */
+
+    /*
+      computed: {
+      dateRangeText () {
+        return this.dates.join(' ~ ')
+        
+      },
+    }, */
+   
+      /*computed:  { 
+        dividirpalets(){
+         
+                let stock1 = BulkPerfumeria.STOCK;
+                 return this.stock1;
+                 console.log (this.stock1)
+                  },  
+      }, */
 data(){
         return{            
           /*   dates: ['2019-09-10', '2019-09-20'], */
-             ProductoTerminadoDeposito:null, 
+             BulkPerfumeria:null, 
           /*   index:null,
             snackbar:false, */
            /*  date: '',
@@ -314,10 +333,10 @@ data(){
  
 
         obtenerTotales(){
-            axios.get('http://extranet.vipmixer.es/apirest/productoterminadodeposito.php')
+            axios.get('http://extranet.vipmixer.es/apirest/bulkperfumeria.php')
             .then(r => {
-                this.ProductoTerminadoDeposito = r.data;
-                console.log(this.ProductoTerminadoDeposito);
+                this.BulkPerfumeria = r.data;
+                console.log(this.BulkPerfumeria);
             })
             .catch(function(error){
                 console.log(error);

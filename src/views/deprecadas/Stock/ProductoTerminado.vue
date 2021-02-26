@@ -17,7 +17,7 @@
       <template v-slot:after-heading>
         <div class="display-2 font-weight-light">
           Stock
-        
+           <!-- {{PALETS}} -->
         </div>
       </template>
 
@@ -45,7 +45,7 @@
                     >
                       <template v-slot:after-heading>
                         <div class="display-2 font-weight-light">
-                          Producto Terminado Deposito
+                          Producto Terminado
                         </div>
                       </template>
 
@@ -224,19 +224,28 @@
             <th class="text-center">DESCRIPCION</th>
             <th class="text-center">CODIGO CLIENTE</th>
             <th class="text-center">FAMILIA</th>
+            <th class="text-center">LOTE</th>
             <th class="text-center">STOCK</th>
             <th class="text-center">ESTADO</th>
+            <th class="text-center">UNIDADES PALET</th>
+            <th class="text-center">NUMERO PALETS</th>
             </tr>
            </thead>
          <tbody>
-            <tr v-for="(ProductoTerminadoDeposito, index) in ProductoTerminadoDepositado" :key="index">
+            <tr v-for="(ProductoTerminado, index) in ProductoTerminado" :key="index">
                 <td>{{ProductoTerminado.ITEMID}}</td>
                 <td>{{ProductoTerminado.NAME}}</td>
                 <td>{{ProductoTerminado.NAMEALIAS}}</td>
                 <td>{{ProductoTerminado.PDWSUBFAMILYID}}</td>
-                <td>{{ProductoTerminado.STOCK}}</td>
+                <td>{{ProductoTerminado.INVENTBATCHID}}</td>
+                <td>{{ProductoTerminado.NSTOCK2}}</td>
                 <td>{{ProductoTerminado.INVENTSTATUSID}}</td>
-           </tr>
+                <td>{{ProductoTerminado.NUMERATOR}}</td>
+                <td style= display:none >{{PALETS = ProductoTerminado.NSTOCK2 / ProductoTerminado.NUMERATOR}}</td>
+                <td>{{Math.ceil(PALETS)}}</td>
+               
+                
+            </tr>
                  
          </tbody>   
         </template>
@@ -256,9 +265,7 @@
 import axios from 'axios';
   export default {
     /* name: 'DashboardDataTables', */
-    name:'ProductoTerminadoDeposito', 
-    
-    mounted(){
+    name:'ProductoTerminado', mounted(){
      /*  this.dividirpalets(); */
         this.obtenerTotales();
     } ,/*
@@ -268,10 +275,22 @@ import axios from 'axios';
         
       },
     }, */
+   
+      computed: { 
+        dividirpalets(){
+          /*  v-for="(ProductoTerminado, index) in ProductoTerminado" :key="index" */
+                let PALETS = ProductoTerminado.NSTOCK2 / ProductoTerminado.NUMERATOR;
+                 return this.PALETS;
+                 console.log (this.PALETS)
+                  },  
+      },
+    
 data(){
+
+
         return{            
           /*   dates: ['2019-09-10', '2019-09-20'], */
-             ProductoTerminadoDeposito:null, 
+             ProductoTerminado:null, 
           /*   index:null,
             snackbar:false, */
            /*  date: '',
@@ -314,10 +333,10 @@ data(){
  
 
         obtenerTotales(){
-            axios.get('http://extranet.vipmixer.es/apirest/productoterminadodeposito.php')
+            axios.get('http://extranet.vipmixer.es/apirest/productoterminado.php')
             .then(r => {
-                this.ProductoTerminadoDeposito = r.data;
-                console.log(this.ProductoTerminadoDeposito);
+                this.ProductoTerminado = r.data;
+                console.log(this.ProductoTerminado);
             })
             .catch(function(error){
                 console.log(error);

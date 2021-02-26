@@ -17,7 +17,6 @@
       <template v-slot:after-heading>
         <div class="display-2 font-weight-light">
           Stock
-        
         </div>
       </template>
 
@@ -45,7 +44,7 @@
                     >
                       <template v-slot:after-heading>
                         <div class="display-2 font-weight-light">
-                          Producto Terminado Deposito
+                          Totales
                         </div>
                       </template>
 
@@ -229,15 +228,18 @@
             </tr>
            </thead>
          <tbody>
-            <tr v-for="(ProductoTerminadoDeposito, index) in ProductoTerminadoDepositado" :key="index">
-                <td>{{ProductoTerminado.ITEMID}}</td>
-                <td>{{ProductoTerminado.NAME}}</td>
-                <td>{{ProductoTerminado.NAMEALIAS}}</td>
-                <td>{{ProductoTerminado.PDWSUBFAMILYID}}</td>
-                <td>{{ProductoTerminado.STOCK}}</td>
-                <td>{{ProductoTerminado.INVENTSTATUSID}}</td>
-           </tr>
-                 
+            <tr v-for="(total, index) in total" :key="index">
+                <td>{{total.ITEMID}}</td>
+                <td>{{total.NAME}}</td>
+                <td>{{total.NAMEALIAS}}</td>
+                <td>{{total.PDWSUBFAMILYID}}</td>
+                <td>{{total.STOCK}}</td>
+                <td>{{total.INVENTSTATUSID}}</td>
+                <td>
+                    <!-- <v-btn :to="{name:'editarArticulo', params:{id:articulo.id}}" fab small color="primary"><v-icon>mdi-pencil</v-icon></v-btn>
+                    <v-btn @click.stop="dialog=true" @click="id=articulo.id" fab small color="error"><v-icon>mdi-delete</v-icon></v-btn> -->
+                </td>
+            </tr>
          </tbody>   
         </template>
         </v-simple-table>
@@ -256,10 +258,7 @@
 import axios from 'axios';
   export default {
     /* name: 'DashboardDataTables', */
-    name:'ProductoTerminadoDeposito', 
-    
-    mounted(){
-     /*  this.dividirpalets(); */
+    name:'Totales', mounted(){
         this.obtenerTotales();
     } ,/*
       computed: {
@@ -269,9 +268,11 @@ import axios from 'axios';
       },
     }, */
 data(){
+
+
         return{            
           /*   dates: ['2019-09-10', '2019-09-20'], */
-             ProductoTerminadoDeposito:null, 
+            total:null,
           /*   index:null,
             snackbar:false, */
            /*  date: '',
@@ -310,21 +311,22 @@ data(){
 
 
     methods:{
-
- 
-
         obtenerTotales(){
-            axios.get('http://extranet.vipmixer.es/apirest/productoterminadodeposito.php')
+            axios.get('http://extranet.vipmixer.es/apirest/totales.php')
             .then(r => {
-                this.ProductoTerminadoDeposito = r.data;
-                console.log(this.ProductoTerminadoDeposito);
+                this.total = r.data;
+                console.log(this.total);
             })
             .catch(function(error){
                 console.log(error);
             })
 
-        }
+        },
+          
+        
+    },
+    
   }
-  }
+
    
 </script>

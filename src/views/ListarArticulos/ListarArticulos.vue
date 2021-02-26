@@ -135,7 +135,7 @@
                           locale="es-es"
                           range
                           scrollable
-                          @change="obtenerArticulos(dates)"
+                         @change="onChange"
                           >
                         </v-date-picker>
                     
@@ -148,15 +148,13 @@
               <v-col
               cols="12"
               sm="6"
+              top="220"
               >
 
-                 
-      model: {{ dates }}
-
-              </v-col>  
-          </v-row>
-        </v-container>
-      </template>
+                 <template>
+          <v-card
+          class="pt-md-12 mx-lg-auto"
+                                    > 
             <v-text-field
                     v-model="search"
                     append-icon="mdi-magnify"
@@ -167,6 +165,18 @@
                     style="max-width: 250px;"
                   />
               
+               </v-card>
+         </template>    
+     
+
+              </v-col>  
+
+ model: {{ dates }}
+
+          </v-row>
+        </v-container>
+      </template>
+       
           <v-data-table
         :headers="headers"
         :items="entradas" 
@@ -175,43 +185,6 @@
         :sort-desc="[false, true]"
         multi-sort
       />
-        <!-- <v-row>
-      <v-col>
-        <form v-on:submit.prevent="obtenerArticulos()">
-          <v-text-field
-            v-model="entradas.ITEMID"
-            label="CODIGO MIXER'"
-            outlined
-            
-          ></v-text-field>
-          <v-text-field
-            v-model="entradas.NAME"
-            label="DESCRIPCION"
-            
-            
-            outlined
-           
-          ></v-text-field>
-          <v-text-field
-            v-model="entradas.NAMEALIAS"
-            label="Codigo Cliente"
-          
-            outlined
-            
-          ></v-text-field>
-          <v-text-field
-            v-model="entradas.PDWFAMILYID"
-            label="FAMILIA"
-            
-            outlined
-            
-          ></v-text-field>
-          <v-card-actions>
-            <v-btn color="warning" class="mr-4" type="submit">Guardar</v-btn>
-          </v-card-actions>
-        </form>
-      </v-col>
-    </v-row> -->
     </base-material-card>
   </v-container>
  </v-container>
@@ -227,7 +200,7 @@ import axios from 'axios';
         category:'category text',
        },
   data: () => ({
-            dates:['2021-02-18', new Date().toISOString().substr(0,10)],   
+            datesone:['2021-02-18', new Date().toISOString().substr(0,10)],   
      }),
 
 
@@ -238,23 +211,23 @@ import axios from 'axios';
     },
   
 
-    updated() {
-        console.log(this.dates);
-        axios
-      //  .get("http://localhost/apirest/terminados.php")
-           .get("http://localhost/apirest/articulos.php?dates=" + this.dates)
-          .then((r) => {
-            this.entradas = r.data;
-             console.log(this.entradas);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-       },
+    // updated() {
+    //     console.log(this.dates);
+    //     axios
+    //   //  .get("http://localhost/apirest/terminados.php")
+    //        .get("http://localhost/apirest/articulos.php?dates=" + this.dates)
+    //       .then((r) => {
+    //         this.entradas = r.data;
+    //          console.log(this.entradas);
+    //       })
+    //       .catch(function (error) {
+    //         console.log(error);
+    //       });
+    //    },
    mounted(){
-     // this.obtenerArticulos();
+     //this.obtenerArticulos();
         /* this.guardarArticulo(); */
-       // this.getArticulos();
+       this.getArticulos();
     },
      data(){
              
@@ -374,8 +347,9 @@ import axios from 'axios';
   //   this.articulo = await data;
   //   console.log(this.articulo.descripcion);
   // },
-   
-   
+onChange(event) {
+      console.log('deberia emitir evento de cambio',event);
+    },
     updateCategory(event, category) {
       console.log(event, category);
     },
@@ -391,7 +365,7 @@ import axios from 'axios';
 ,
 
       created() {
-      this.getArticulos("2020-02-02,2020-09-02");
+      this.getArticulos(this.datesone);
            }, 
 
 }
