@@ -135,7 +135,7 @@
                           locale="es-es"
                           range
                           scrollable
-                         @change="onChange"
+                         @change="getArticulos(dates)"
                           >
                         </v-date-picker>
                     
@@ -200,7 +200,7 @@ import axios from 'axios';
         category:'category text',
        },
   data: () => ({
-            datesone:['2021-02-18', new Date().toISOString().substr(0,10)],   
+            dates:[],   
      }),
 
 
@@ -227,7 +227,7 @@ import axios from 'axios';
    mounted(){
      //this.obtenerArticulos();
         /* this.guardarArticulo(); */
-       this.getArticulos();
+     //  this.getArticulos();
     },
      data(){
              
@@ -276,6 +276,16 @@ import axios from 'axios';
               menu: false,
             search: undefined
           }),
+
+
+       watch: {
+      period: function (newValue, oldValue) {
+        if (newValue !== oldValue && this.dates.length === 2) {
+          this.getActualizar() // i need to update some tables 
+        }
+      }
+    },
+
 
 /* no se ni lo que es el primero el sdegundo testado */
  /*  methods:{
@@ -347,6 +357,7 @@ import axios from 'axios';
   //   this.articulo = await data;
   //   console.log(this.articulo.descripcion);
   // },
+  
 onChange(event) {
       console.log('deberia emitir evento de cambio',event);
     },
@@ -362,11 +373,11 @@ onChange(event) {
       this.inputed.push(value)
       },
     }
-,
+// ,
 
-      created() {
-      this.getArticulos(this.datesone);
-           }, 
+//       created() {
+//       this.getArticulos(this.datesone);
+//            }, 
 
 }
 
