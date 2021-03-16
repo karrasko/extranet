@@ -11,7 +11,7 @@
     >
       <template v-slot:after-heading>
         <div class="display-2 font-weight-light">
-          Entradas Proveedor
+          Movimientos
         </div>
       </template>
 
@@ -27,7 +27,6 @@
                        <base-v-component
                           heading=" PYD"
                           link="components/data-tables"
-                          
                         />
                          <base-material-card
                           color="success"
@@ -38,7 +37,7 @@
                         >
                         <template v-slot:after-heading>
                            <div class="display-2 mt-2 font-weight-light">
-                      Entradas Proveedor<span class="body-1">— Fecha</span>
+                      Movimientos<span class="body-1">— Fecha</span>
                     </div>
                           </template>
                   <v-menu 
@@ -94,8 +93,6 @@
                     :sort-desc="[false, true]"
                     multi-sort
                   />
-                  <hr/>
-                  <v-btn class="ma-1" color="secondary" text> Simple </v-btn>
                   </v-container>
       </template>
       </template>
@@ -110,7 +107,7 @@
 import axios from 'axios';
   export default {
     /* name: 'DashboardDataTables', */
-    name:'listarArticulos', 
+    name:'Movimientos', 
    
   data: () => ({
             dates:[],   
@@ -152,32 +149,36 @@ import axios from 'axios';
         data: () => ({
             headers: [
               {
+                text: 'FECHA FÍSICA',
+                value: 'FECHA_FISICA'
+              },
+              {
+                text: 'CÓDIGO CLIENTE',
+                value: 'NAMEALIAS'
+              },
+              {
                 text: 'CODIGO MIXER',
                 value: 'ITEMID'
               },
               {
-                text: 'DESCRIPCION',
-                value: 'NAME'
-              },
-              {
-                text: 'CODIGO CLIENTE',
-                value: 'NAMEALIAS'
-              },
-              {
-                text: 'FECHA',
-                value: 'FECHAMYSQL'
-              },
-              {
-                text: 'FAMILIA',
-                value: 'PDWFAMILYID'
+                text: 'NOMBRE',
+                value: 'INVENTBATCHID'
               },
               {
                 text: 'CANTIDAD',
-                value: 'QTY'
+                value: 'CANTIDAD'
               },
               {
-                text: 'LOTE',
-                value: 'INVENTBATCHID'
+                text: 'PEDIDO CLIENTE',
+                value: 'REFERENCEID'
+              },
+              {
+                text: 'CATEGORIA',
+                value: 'REFERENCECATEGORY'
+              },
+              {
+                text: 'CATEGORIA',
+                value: 'PDWITEMSUBFAMILYID'
               },
               /* {
                 sortable: false,
@@ -248,7 +249,7 @@ import axios from 'axios';
        getArticulos() {
         console.log(this.dates);
         axios
-          .get("http://localhost/apirest/articulos.php?dates=" + this.dates)
+          .get("http://localhost/apirest/movimientos.php?dates=" + this.dates)
           .then((r) => {
             this.entradas = r.data;
              console.log(this.entradas);

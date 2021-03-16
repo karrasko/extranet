@@ -5,13 +5,13 @@
   >
     <base-material-card
       color="indigo"
-      icon="mdi-truck-delivery"
+      icon="mdi-beaker"
       inline
       class="px-5 py-3"
     >
       <template v-slot:after-heading>
         <div class="display-2 font-weight-light">
-          Entradas Proveedor
+          Ordenes
         </div>
       </template>
 
@@ -27,7 +27,6 @@
                        <base-v-component
                           heading=" PYD"
                           link="components/data-tables"
-                          
                         />
                          <base-material-card
                           color="success"
@@ -38,7 +37,7 @@
                         >
                         <template v-slot:after-heading>
                            <div class="display-2 mt-2 font-weight-light">
-                      Entradas Proveedor<span class="body-1">— Fecha</span>
+                      Ordenes Finalizadas<span class="body-1">— Fecha</span>
                     </div>
                           </template>
                   <v-menu 
@@ -94,8 +93,6 @@
                     :sort-desc="[false, true]"
                     multi-sort
                   />
-                  <hr/>
-                  <v-btn class="ma-1" color="secondary" text> Simple </v-btn>
                   </v-container>
       </template>
       </template>
@@ -110,10 +107,12 @@
 import axios from 'axios';
   export default {
     /* name: 'DashboardDataTables', */
-    name:'listarArticulos', 
+    name:'ordenes', 
    
   data: () => ({
             dates:[],   
+          //  n: c = value.replace(/^0+(?=\d*\.\d+)/,'CANTFABRICADAOK'),
+            n:'CANTFABRICADAOK'
      }),
 
 
@@ -154,30 +153,38 @@ import axios from 'axios';
               {
                 text: 'CODIGO MIXER',
                 value: 'ITEMID'
+                
               },
               {
-                text: 'DESCRIPCION',
-                value: 'NAME'
+                text: 'ORDEN',
+                value: 'PRODID'
               },
               {
-                text: 'CODIGO CLIENTE',
-                value: 'NAMEALIAS'
-              },
-              {
-                text: 'FECHA',
+                text: 'FECHA FABRICACIÓN',
                 value: 'FECHAMYSQL'
               },
               {
-                text: 'FAMILIA',
-                value: 'PDWFAMILYID'
+                text: 'FECHA INICIO ORDEN',
+                value: 'FECHAINICIO'
+              },
+              {
+                text: 'NOMBRE',
+                value: 'NAME'
               },
               {
                 text: 'CANTIDAD',
-                value: 'QTY'
+                value: 'CANTEO'
               },
+
+              //CANTFAB..., 0
               {
-                text: 'LOTE',
-                value: 'INVENTBATCHID'
+                text: 'CANTIDAD REALIZADA',
+              value: 'CANTFABRICADAOK'
+              },
+
+              {
+                text: 'REFERENCIA CLIENTE',
+                value: 'MX_SALESCUSTOMERREF'
               },
               /* {
                 sortable: false,
@@ -185,6 +192,7 @@ import axios from 'axios';
                 value: 'actions'
               } */
             ],
+           
            dates:[],
             entradas: [],
              num: 0,
@@ -248,7 +256,7 @@ import axios from 'axios';
        getArticulos() {
         console.log(this.dates);
         axios
-          .get("http://localhost/apirest/articulos.php?dates=" + this.dates)
+          .get("http://localhost/apirest/ordenesoenvasadofin.php?dates=" + this.dates)
           .then((r) => {
             this.entradas = r.data;
              console.log(this.entradas);

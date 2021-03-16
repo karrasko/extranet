@@ -92,16 +92,16 @@
           title: 'dashboard',
           to: '/'
         },
-         {
-          icon: 'mdi-truck-delivery',
-          title: 'EntradasProveedor',
-          to: '/ListarEntradasProveedor'
-        },
-         {
-          icon: 'mdi-truck-delivery',
-          title: 'articulos',
-          to: '/ListarArticulos'
-        },
+        //  {
+        //   icon: 'mdi-truck-delivery',
+        //   title: 'EntradasProveedor',
+        //   to: '/ListarEntradasProveedor'
+        // },
+        //  {
+        //   icon: 'mdi-truck-delivery',
+        //   title: 'Entradas de Proveedor',
+        //   to: '/ListarArticulos'
+        // },
         {
           group: '/Stock',
           icon: 'mdi-stocking',
@@ -142,6 +142,36 @@
               title: 'StockRechazados',
               to: 'StockRechazados'
             }
+            ]
+        },
+        {
+          group: '/Movimientos',
+          icon: 'mdi-truck-delivery',
+          title: 'Movimientos',
+          children: [
+            {
+              title: 'Entradas de Proveedor',
+              to: 'ListarArticulos'
+            },
+            {
+              title: 'Movimientos',
+              to: 'Movimientos'
+            },
+            ]
+        },
+        {
+          group: '/Ordenes',
+          icon: 'mdi-beaker',
+          title: 'Ordenes',
+          children: [
+            {
+              title: 'Ordenes Finalizadas',
+              to: 'Ordenes'
+            },
+            {
+              title: 'Ordenesdos',
+              to: 'Ordenesdos'
+            },
             ]
         },
         // {

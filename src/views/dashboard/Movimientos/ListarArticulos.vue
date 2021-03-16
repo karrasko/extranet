@@ -11,7 +11,7 @@
     >
       <template v-slot:after-heading>
         <div class="display-2 font-weight-light">
-          Entradas Proveedor
+          Movimientos
         </div>
       </template>
 
@@ -29,6 +29,7 @@
                           link="components/data-tables"
                           
                         />
+
                          <base-material-card
                           color="success"
                           flat
@@ -38,9 +39,18 @@
                         >
                         <template v-slot:after-heading>
                            <div class="display-2 mt-2 font-weight-light">
-                      Entradas Proveedor<span class="body-1">— Fecha</span>
-                    </div>
+                          Entradas Proveedor<span class="body-1">— Fecha</span>
+                           </div>
                           </template>
+                          <template>
+                      
+                             
+                             <v-btn class="ma-1"
+                              color="secondary" 
+                              dark text>
+                             Export PDF </v-btn>
+                            
+                           </template>
                   <v-menu 
                       ref="menu"
                       v-model="menu"
@@ -94,10 +104,10 @@
                     :sort-desc="[false, true]"
                     multi-sort
                   />
-                  <hr/>
-                  <v-btn class="ma-1" color="secondary" text> Simple </v-btn>
                   </v-container>
+                 
       </template>
+           
       </template>
     </base-material-card> 
     

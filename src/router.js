@@ -190,6 +190,28 @@ export default new Router({
           path: 'Stock/TotalesB',
           component: () => import('@/views/dashboard/Stock/TotalesB')
         },
+            // Movimientos
+       {
+        name: 'Movimientos',
+        path: 'Movimientos/ListarArticulos',
+        component: () => import('@/views/dashboard/Movimientos/ListarArticulos')
+      },
+     {
+        name: 'Movimientos',
+        path: 'Movimientos/Movimientos',
+        component: () => import('@/views/dashboard/Movimientos/Movimientos')
+      },
+       // Ordenes
+       {
+        name: 'Ordenes',
+        path: 'Ordenes/ordenes',
+        component: () => import('@/views/dashboard/Ordenes/ordenes')
+      },
+     {
+        name: 'Ordenes',
+        path: 'Ordenes/ordenesdos',
+        component: () => import('@/views/dashboard/Movimientos/Movimientos')
+      },
       //   // StockBulk
       //  {
       //   name: 'TotalesB',
