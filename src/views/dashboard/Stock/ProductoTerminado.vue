@@ -49,7 +49,7 @@
                         </div>
                       </template>
 
-                      <v-text-field
+                      <!-- <v-text-field
                         v-model="search"
                         append-icon="mdi-magnify"
                         class="ml-auto"
@@ -57,166 +57,13 @@
                         hide-details
                         single-line
                         style="max-width: 250px;"
-                      />
+                      /> -->
 
                       <v-divider class="mt-3" />
-
-                      <v-data-table
-                        :headers="headers"
-                        :items="items"
-                        :search.sync="search"
-                        :sort-by="['name', 'office']"
-                        :sort-desc="[false, true]"
-                        multi-sort
-                      />
-                  </base-material-card>
-              </v-container>
-      </template>
-
-      <!--       <v-row>
-
-                  <v-col
-            cols="12"
-            sm="6"
-          >
-            <v-date-picker
-              v-model="dates"
-              range
-            ></v-date-picker>
-            </v-col>
-            <v-col
-              cols="12"
-              sm="6"
-              >
-              <v-text-field
-                v-model="dateRangeText"
-                label="Date range"
-                prepend-icon="mdi-calendar"
-                readonly
-            ></v-text-field>
-            model: {{ dates }}
-          </v-col>
-
-          -->
-
-              <!-- <v-col
-                  cols="6"
-                  sm="6"
-                  md="6"
-              >
-                  <base-material-card
-                  color="success"
-                  icon="mdi-calendar-today"
-                  >
-                <template v-slot:after-heading>
-                  <div class="display-1 mt-2 font-weight-light">
-                    Fecha de entrada <span class="body-1">— seleccione dato</span>
-                  </div>
-                </template>
-
-                <v-menu
-                  ref="menu2"
-                  v-model="menu2"
-                  :close-on-content-click="false"
-                  :return-value.sync="date"
-                  transition="scale-transition"
-                  min-width="290px"
-                  offset-y
-                >
-                  <template v-slot:activator="{ on }">
-                    <v-text-field
-                      v-model="date2"
-                      color="secondary"
-                      label="Select date"
-                      prepend-icon="mdi-calendar-outline"
-                      readonly
-                      v-on="on"
-                    />
-                  </template>
-
-                  <v-date-picker
-                    v-model="date"
-                    color="secondary"
-                    landscape
-                    scrollable
-                  >
-                    <v-spacer />
-                    <v-btn
-                      color="secondary"
-                      large
-                      @click="menu2 = false"
-                    >
-                      Cancel
-                    </v-btn>
-                  </v-date-picker>
-                </v-menu>
-              </base-material-card>
-            </v-col> -->
-            <!-- <v-col
-              cols="12"
-              sm="6"
-              md="6"
-            >
-              <base-material-card
-                color="success"
-                icon="mdi-calendar-today"
-              >
-                <template v-slot:after-heading>
-                  <div class="display-1 mt-2 font-weight-light">
-                    Fecha limite <span class="body-1">— seleccione dato</span>
-                  </div>
-                </template>
-
-                <v-menu
-                  ref="menu2"
-                  v-model="menu2"
-                  :close-on-content-click="false"
-                  :return-value.sync="date"
-                  transition="scale-transition"
-                  min-width="290px"
-                  offset-y
-                >
-                  <template v-slot:activator="{ on }">
-                    <v-text-field
-                      v-model="date2"
-                      color="secondary"
-                      label="Select date"
-                      prepend-icon="mdi-calendar-outline"
-                      readonly
-                      v-on="on"
-                    />
-                  </template>
-
-                  <v-date-picker
-                    v-model="date"
-                    color="secondary"
-                    landscape
-                    scrollable
-                  >
-                    <v-spacer />
-                    <v-btn
-                      color="secondary"
-                      large
-                      @click="menu2 = false"
-                    >
-                      Cancel
-                    </v-btn>
-                  </v-date-picker>
-                </v-menu>
-              </base-material-card>
-            </v-col> -->
-
-
-
-          <!--  </v-row>-->
-    </template>
- 
-    
-
-   
-       <v-row class="text-center">
-         <v-col cols="12">
-          <v-simple-table fixed-header class="elevation-3">
+       
+          <v-simple-table 
+          fixed-header class=""
+          :search.sync="search">
           <template v-slot:default>
           <thead>
             <tr>
@@ -232,7 +79,9 @@
             </tr>
            </thead>
          <tbody>
-            <tr v-for="(ProductoTerminado, index) in ProductoTerminado" :key="index">
+            <tr v-for="(ProductoTerminado, index) in ProductoTerminado" :key="index"
+            
+            >
                 <td>{{ProductoTerminado.ITEMID}}</td>
                 <td>{{ProductoTerminado.NAME}}</td>
                 <td>{{ProductoTerminado.NAMEALIAS}}</td>
@@ -250,8 +99,27 @@
          </tbody>   
         </template>
         </v-simple-table>
-      </v-col>
-    </v-row>
+
+
+                      <!-- <v-data-table
+                        :headers="headers"
+                        :items="items"
+                        :search.sync="search"
+                        :sort-by="['name', 'office']"
+                        :sort-desc="[false, true]"
+                        multi-sort
+                      /> -->
+
+
+                  </base-material-card>
+              </v-container>
+      </template>
+
+    
+    </template>
+ 
+    
+
  
 
     </base-material-card>
@@ -292,6 +160,7 @@ data(){
         return{            
           /*   dates: ['2019-09-10', '2019-09-20'], */
              ProductoTerminado:null, 
+             search:""
           /*   index:null,
             snackbar:false, */
            /*  date: '',

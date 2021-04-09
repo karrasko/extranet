@@ -12,6 +12,7 @@
 // * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 import Vue from 'vue'
+import excel from 'vue-excel-export'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -23,8 +24,9 @@ import vuetify from './plugins/vuetify'
 import i18n from './i18n'
 
 Vue.config.productionTip = false
-
+Vue.use(excel)
 new Vue({
+  excel,
   router,
   store,
   vuetify,

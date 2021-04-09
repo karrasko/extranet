@@ -9,7 +9,7 @@
       inline
       class="px-5 py-3"
     >
-      <template v-slot:after-heading>
+      <template v-slot:header>>
         <div class="display-2 font-weight-light">
           Movimientos
         </div>
@@ -37,20 +37,22 @@
                           inline
                           class="px-5 py-3"
                         >
-                        <template v-slot:after-heading>
+                        
+                      
+                          <template v-slot:after-heading >
                            <div class="display-2 mt-2 font-weight-light">
-                          Entradas Proveedor<span class="body-1">— Fecha</span>
+                          Entradas Proveedor<span class="body-1">— Fecha</span> 
+                          <export-excel
+                           span class="body-1"
+                           elevation-7
+                            :data = "entradas">
+                               Export Excel 
+                                <!-- <img src="download_icon.png"> -->
+                         </export-excel>
                            </div>
                           </template>
-                          <template>
-                      
-                             
-                             <v-btn class="ma-1"
-                              color="secondary" 
-                              dark text>
-                             Export PDF </v-btn>
-                            
-                           </template>
+                     
+                       
                   <v-menu 
                       ref="menu"
                       v-model="menu"

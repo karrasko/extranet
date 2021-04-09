@@ -195,23 +195,23 @@ export default new Router({
         name: 'Movimientos',
         path: 'Movimientos/ListarArticulos',
         component: () => import('@/views/dashboard/Movimientos/ListarArticulos')
-      },
-     {
-        name: 'Movimientos',
-        path: 'Movimientos/Movimientos',
-        component: () => import('@/views/dashboard/Movimientos/Movimientos')
-      },
+       },
+       {
+          name: 'Movimientos',
+          path: 'Movimientos/Movimientos',
+          component: () => import('@/views/dashboard/Movimientos/Movimientos')
+        },
        // Ordenes
        {
         name: 'Ordenes',
         path: 'Ordenes/ordenes',
         component: () => import('@/views/dashboard/Ordenes/ordenes')
-      },
-     {
+       },
+       {
         name: 'Ordenes',
         path: 'Ordenes/ordenesdos',
         component: () => import('@/views/dashboard/Movimientos/Movimientos')
-      },
+       },
       //   // StockBulk
       //  {
       //   name: 'TotalesB',
@@ -248,6 +248,13 @@ export default new Router({
           path: 'register',
           component: () => import('@/views/pages/Register')
           }, */
+
+           // Dashboard
+        {
+          name: 'Planing',
+          path: 'Planing',
+          component: () => import('@/views/dashboard/Planing')
+        },
         {
           name: 'Charts',
           path: 'charts',

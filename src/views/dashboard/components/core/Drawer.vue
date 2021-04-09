@@ -334,6 +334,11 @@
       //     title: 'calendar',
       //     to: '/calendar'
       //   }
+      {
+          icon: 'mdi-calendar-range',
+          title: 'Planing',
+          to: '/Planing'
+        }
       ]
     }),
 
