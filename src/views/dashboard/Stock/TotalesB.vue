@@ -172,7 +172,7 @@ import axios from 'axios';
           }),
            created()
              {
-            axios.get('http://localhost/apirest/totalesbulk.php')
+            axios.get('http://extranet.vipmixer.es/apirest/totales.php')
             .then(r => {
                 this.totales = r.data;
                 console.log(this.totales);

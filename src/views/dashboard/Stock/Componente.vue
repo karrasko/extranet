@@ -64,7 +64,7 @@
                         :headers="headers"
                         :items="componente"
                         :search.sync="search"
-                        :sort-by="['ITEMID', 'STOCK']"
+                        :sort-by="['componente.ITEMID', 'componente.STOCK']"
                         :sort-desc="[false, true]"
                         multi-sort
                       />

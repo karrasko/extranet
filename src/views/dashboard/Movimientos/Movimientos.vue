@@ -11,7 +11,7 @@
     >
       <template v-slot:after-heading>
         <div class="display-2 font-weight-light">
-          Movimientos
+        Movimientos
         </div>
       </template>
 
@@ -37,7 +37,7 @@
                         >
                         <template v-slot:after-heading>
                            <div class="display-2 mt-2 font-weight-light">
-                      Movimientos<span class="body-1">— Fecha</span>
+                     Todos los Movimientos<span class="body-1">— Fecha</span>
                     </div>
                           </template>
                   <v-menu 

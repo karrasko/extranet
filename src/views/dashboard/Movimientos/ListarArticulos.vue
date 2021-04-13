@@ -9,12 +9,11 @@
       inline
       class="px-5 py-3"
     >
-      <template v-slot:header>>
+       <template v-slot:after-heading>
         <div class="display-2 font-weight-light">
-          Movimientos
+        Movimientos
         </div>
       </template>
-
         <v-divider class="mt-3" />
            <template>
                         

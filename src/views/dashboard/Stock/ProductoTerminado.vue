@@ -44,7 +44,7 @@
                       class="px-5 py-3"
                     >
                       <template v-slot:after-heading>
-                        <div class="display-2 font-weight-light">
+                        <div class="display-2 font-weight-light mb-16" >
                           Producto Terminado
                         </div>
                       </template>
@@ -58,6 +58,11 @@
                         single-line
                         style="max-width: 250px;"
                       /> -->
+         
+
+          
+          <!-- <v-divider class="" />
+           <v-divider class="" /> -->
 
                       <v-divider class="mt-3" />
        

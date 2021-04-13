@@ -154,7 +154,7 @@
               to: 'ListarArticulos'
             },
             {
-              title: 'Movimientos',
+              title: 'Todos los Movimientos',
               to: 'Movimientos'
             },
             ]
@@ -197,46 +197,46 @@
         //     }
         //     ]
         // },
-        // {
-        //   group: '/pages',
-        //   icon: 'mdi-image',
-        //   title: 'pages',
-        //   children: [
-        //     {
-        //       title: 'pricing',
-        //       to: 'pricing'
-        //     },
-        //     {
-        //       title: 'rtl',
-        //       to: 'rtl'
-        //     },
-        //     {
-        //       title: 'timeline',
-        //       to: 'timeline'
-        //     },
-        //     {
-        //       title: 'login',
-        //       to: 'login'
-        //     },
-        //     {
-        //       title: 'register',
-        //       to: 'pricing'
-        //     },
-        //     {
-        //       title: 'lock',
-        //       to: 'lock'
-        //     },
-        //     {
-        //       title: 'user',
-        //       to: 'user'
-        //     },
-        //     {
-        //       title: 'error',
-        //       to: '404'
-        //     }
-        //   ]
-        // },
-        // {
+        {
+          group: '/pages',
+          icon: 'mdi-image',
+          title: 'pages',
+          children: [
+            // {
+            //   title: 'pricing',
+            //   to: 'pricing'
+            // },
+            // {
+            //   title: 'rtl',
+            //   to: 'rtl'
+            // },
+            // {
+            //   title: 'timeline',
+            //   to: 'timeline'
+            // },
+            {
+              title: 'login',
+              to: 'login'
+            },
+            // {
+            //   title: 'register',
+            //   to: 'pricing'
+            // },
+            // {
+            //   title: 'lock',
+            //   to: 'lock'
+            // },
+            // {
+            //   title: 'user',
+            //   to: 'user'
+            // },
+            // {
+            //   title: 'error',
+            //   to: '404'
+            // }
+          ]
+        },
+       //{
         //   group: '/components',
         //   icon: 'mdi-view-comfy',
         //   title: 'components',
@@ -277,29 +277,29 @@
         //     }
         //   ]
         // },
-        {
-          group: '/forms',
-          icon: 'mdi-clipboard-outline',
-          title: 'forms',
-          children: [
-            {
-              title: 'rforms',
-              to: 'regular'
-            },
-            {
-              title: 'eforms',
-              to: 'extended'
-            },
-            {
-              title: 'vforms',
-              to: 'validation'
-            },
-            {
-              title: 'wizard',
-              to: 'wizard'
-            }
-          ]
-        },
+        // {
+        //   group: '/forms',
+        //   icon: 'mdi-clipboard-outline',
+        //   title: 'forms',
+        //   children: [
+        //     {
+        //       title: 'rforms',
+        //       to: 'regular'
+        //     },
+        //     {
+        //       title: 'eforms',
+        //       to: 'extended'
+        //     },
+        //     {
+        //       title: 'vforms',
+        //       to: 'validation'
+        //     },
+        //     {
+        //       title: 'wizard',
+        //       to: 'wizard'
+        //     }
+        //   ]
+        // },
         // {
         //   group: '/tables',
         //   icon: 'mdi-grid',
