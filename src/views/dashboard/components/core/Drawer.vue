@@ -70,14 +70,16 @@
 </template>
 
 <script>
+
   // Utilities
   import {
     mapState
   } from 'vuex'
-
+import sesion from '@/mixins/sesion';
   export default {
     name: 'DashboardCoreDrawer',
-
+   
+    mixins:[sesion],
     props: {
       expandOnHover: {
         type: Boolean,

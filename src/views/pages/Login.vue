@@ -13,6 +13,7 @@
           width="400"
           class="px-5 py-3"
         >
+       
         <template v-slot:heading>
             <div class="text-center">
               <h1 class="display-2 font-weight-bold mb-2">
@@ -148,12 +149,12 @@ import axios from 'axios';
          //  axios.post('http://extranet.vipmixer.es/apirest/login.php',formData)
           .then(r => {
                 this.respuesta = r.data;
-              console.log(this.respuesta);
+             console.log(this.respuesta);
                 if (r.data.res=='success'){
-             //   localStorage.setItem('token', JSON.stringify(r.data))
+               localStorage.setItem('token', JSON.stringify(r.data))
                 //  JSON.parse(localStorage.getItem('token'))['token']
                 //  this.$localStorage.set('token',JSON.stringify(res.data.token))
-               //console.log(localStorage.setItem)
+              // console.log(localStorage)
                   this.$router.push('/')
                 }
                 
@@ -166,7 +167,7 @@ import axios from 'axios';
                   this.lastname= ''
 
                 }
-                
+               
             })
             .catch(function(error){
                 // 
@@ -175,13 +176,15 @@ import axios from 'axios';
 
         },
     },
-  //   created(){
-  //   const token = JSON.parse(this.$localStorage.get('token'))
-  //   if (token){
-  //      this.$router.push('/')
-  //     ////alert(token)
-  //    }
+     created(){
+   //const token = JSON.parse(this.$localStorage.get('token'))
+//localStorage.removeItem('token');
+    const token = localStorage.getItem('token')
+    if (token){
+       this.$router.push('/')
+     //alert(token)
+     }
 
-  // }
+  }
   }
 </script>

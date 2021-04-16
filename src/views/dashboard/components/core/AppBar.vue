@@ -123,22 +123,35 @@
         :tile="false"
         flat
         nav
-      >
+      
+      >  
+       
+
         <template v-for="(p, i) in profile">
           <v-divider
             v-if="p.divider"
             :key="`divider-${i}`"
+         
             class="mb-2 mt-2"
           />
-
+         
           <app-bar-item
             v-else
             :key="`item-${i}`"
-            to="/"
-          >
-            <v-list-item-title v-text="p.title" />
+               
+           
+          > <!-- to="/pages/login"  // <v-btn
+             v-on:click = "salir"
+             elevation="2"
+             ></v-btn>-->
+
+            <v-list-item-title v-text="p.salir" v-on:click.prevent = "salir"/>
           </app-bar-item>
         </template>
+        
+         
+            
+        
       </v-list>
     </v-menu>
   </v-app-bar>
@@ -150,7 +163,7 @@
 
   // Utilities
   import { mapState, mapMutations } from 'vuex'
-
+import axios from 'axios';
   export default {
     name: 'DashboardCoreAppBar',
 
@@ -194,10 +207,10 @@
         'Another one'
       ],
       profile: [
-        { title: 'Profile' },
-        { title: 'Settings' },
+        // { title: 'Profile' },
+        // { title: 'Settings' },
         { divider: true },
-        { title: 'Log out' }
+        { salir: 'Salir' }
       ]
     }),
 
@@ -208,7 +221,20 @@
     methods: {
       ...mapMutations({
         setDrawer: 'SET_DRAWER'
-      })
+      }),
+     salir(){
+
+      // alert('hola');
+       const token = localStorage.getItem('token')
+       console.log(token);
+       axios.get('http://localhost/apirest/salir.php?token='+ token)
+       .then( res =>{
+         if (res.data == 'success'){
+           localStorage.removeItem('token');
+         this.$router.push('/pages/login')
+         }
+       })
+     }
     }
   }
 </script>

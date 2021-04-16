@@ -108,10 +108,12 @@
 
 <script>
 import axios from 'axios';
+import sesion from '@/mixins/sesion';
   export default {
     /* name: 'DashboardDataTables', */
     name:'listarArticulos', 
    
+    mixins:[sesion],
   data: () => ({
             dates:[],   
      }),
@@ -269,8 +271,6 @@ import axios from 'axios';
   
 
     }
- 
-
      
 }
 
