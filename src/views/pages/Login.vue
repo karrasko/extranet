@@ -97,12 +97,12 @@
                       :timeout="1500"
                       :value="false"
                       color="red"
-                    absolute
+                      absolute
                       shaped
                       rounded="pill"
                  
                      >
-                      Comprueba ususario y contraseña
+                   Credenciales incorrectas
                   </v-snackbar>
                   </v-card>  
                   </v-col>
@@ -128,8 +128,8 @@ import axios from 'axios';
       firstname: '',
       lastname: '',
       nameRules: [
-        v => !!v || 'Name is required',
-        v => v.length <= 10 || 'Name must be less than 10 characters',
+        v => !!v || 'Falta el texto',
+        v => v.length <= 10 || 'Como máximo 10 caracterres',
       ],
       email: '',
       emailRules: [
@@ -149,12 +149,13 @@ import axios from 'axios';
          //  axios.post('http://extranet.vipmixer.es/apirest/login.php',formData)
           .then(r => {
                 this.respuesta = r.data;
-             console.log(this.respuesta);
+        //     console.log(this.respuesta);
                 if (r.data.res=='success'){
-               localStorage.setItem('token', JSON.stringify(r.data))
+               localStorage.setItem('token',JSON.stringify(r.data))
+               
                 //  JSON.parse(localStorage.getItem('token'))['token']
                 //  this.$localStorage.set('token',JSON.stringify(res.data.token))
-              // console.log(localStorage)
+             console.log(localStorage)
                   this.$router.push('/')
                 }
                 
@@ -177,14 +178,16 @@ import axios from 'axios';
         },
     },
      created(){
-   //const token = JSON.parse(this.$localStorage.get('token'))
-//localStorage.removeItem('token');
-    const token = localStorage.getItem('token')
+   const token = JSON.parse(localStorage.getItem('token'))
+//  localStorage.removeItem('usuario');
+    console.log(token)
+    //const usuario = localStorage.getItem('usuario')
+   // const token = localStorage.getItem('token')
+    
     if (token){
        this.$router.push('/')
      //alert(token)
      }
-
-  }
+    }
   }
 </script>

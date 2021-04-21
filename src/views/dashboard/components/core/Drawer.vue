@@ -76,16 +76,27 @@
     mapState
   } from 'vuex'
 import sesion from '@/mixins/sesion';
+import saludo from '@/mixins/saludo';
   export default {
     name: 'DashboardCoreDrawer',
-   
-    mixins:[sesion],
+    
+    mixins:[sesion,saludo],
+  
     props: {
       expandOnHover: {
         type: Boolean,
         default: false
       }
     },
+      created(){
+   //const token = JSON.parse(this.$localStorage.get('token'))
+//localStorage.removeItem('usuario');
+  //  const token = localStorage.getItem('token') 
+    
+  },
+
+  
+  
 
     data: () => ({
       items: [

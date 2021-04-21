@@ -13,6 +13,7 @@
 <script>
   export default {
     name: 'DashboardIndex',
+  
 
     components: {
       DashboardCoreAppBar: () => import('./components/core/AppBar'),
