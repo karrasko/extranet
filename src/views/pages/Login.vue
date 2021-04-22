@@ -145,8 +145,8 @@ import axios from 'axios';
            const formData = new FormData();
            formData.append('usuario',this.firstname);
            formData.append('password',this.lastname);
-         axios.post('http://localhost/apirest/login.php', formData)
-         //  axios.post('http://extranet.vipmixer.es/apirest/login.php',formData)
+        // axios.post('http://localhost/apirest/login.php', formData)
+          axios.post('http://extranet.vipmixer.es/apirest/login.php',formData)
           .then(r => {
                 this.respuesta = r.data;
         //     console.log(this.respuesta);
@@ -179,7 +179,7 @@ import axios from 'axios';
     },
      created(){
    const token = JSON.parse(localStorage.getItem('token'))
-//  localStorage.removeItem('usuario');
+ //localStorage.removeItem('usuario');
     console.log(token)
     //const usuario = localStorage.getItem('usuario')
    // const token = localStorage.getItem('token')
