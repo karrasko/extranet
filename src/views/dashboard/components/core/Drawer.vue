@@ -80,8 +80,8 @@ import sesion from '@/mixins/sesion';
   export default {
     name: 'DashboardCoreDrawer',
     
-    mixins:[sesion],
-  
+   // mixins:[sesion,saludo],
+  mixins:[sesion],
     props: {
       expandOnHover: {
         type: Boolean,
