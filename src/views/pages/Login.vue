@@ -37,7 +37,7 @@
                       prepend-icon="mdi-face"
                         class="mt-10"
                     ></v-text-field>
-                 
+               
                    <v-text-field
                       v-model="lastname"
                       :rules="nameRules"
@@ -71,7 +71,8 @@
                     ></v-text-field> -->
                   
                    </v-row>
-                     <v-card-actions>
+                  
+                     <v-card-actions class="justify-center">
               <v-btn 
                large
                color=""
@@ -81,7 +82,9 @@
                type="submit"
                >Accede
                 </v-btn>    
+            <!-- <v-btn @click="showAlert">hello</v-btn>    -->
             </v-card-actions>
+                   
               </v-container>
              </form>
 
@@ -105,6 +108,20 @@
                    Credenciales incorrectas
                   </v-snackbar>
                   </v-card>  
+               <!--      <v-card class>  
+    <v-snackbar
+                      v-model="snackbar2"
+                      :timeout="1500"
+                      :value="false"
+                      color="red"
+                      absolute
+                      shaped
+                      rounded="pill"
+                 
+                     >
+                 hola
+                  </v-snackbar>
+                  </v-card>   -->
                   </v-col>
                     </v-row>
    </v-container>
@@ -112,6 +129,7 @@
 
 <script>
 import axios from 'axios';
+//import Swal from 'sweetalert2';
   export default {
     name: 'PagesLogin',
      components: {
@@ -124,6 +142,8 @@ import axios from 'axios';
     data: () => ({
       valid: false,
       snackbar: false,
+      //snackbar2: false,
+     // Object1:'',
       respuesta:'',
       firstname: '',
       lastname: '',
@@ -138,6 +158,13 @@ import axios from 'axios';
       ],
     }),
     methods: {
+
+
+      showAlert()
+
+      {
+        this.$swal('hello');
+      },
          login(){
           /* const form = document.getElementById('inicioSesion')
             axios.post('http://localhost/apirest/login.php', new FormData(form)) */
@@ -152,10 +179,27 @@ import axios from 'axios';
         //     console.log(this.respuesta);
                 if (r.data.res=='success'){
                localStorage.setItem('token',JSON.stringify(r.data))
-               
+                let retrievedObject = localStorage.getItem('token');
+    
+ //   console.log('retrievedObject: ', JSON.parse(retrievedObject));
+    let Object1 = JSON.parse(retrievedObject);
+  // this.snackbar2 = true;
+    //console.log(Object1.usuario);
+  //   this.$swal(`
+  //  Hola ${Object1.usuario}
+  // `.trim())
+    this.$swal.fire({
+  position: 'top-end',
+  icon: 'success',
+  title: (`
+   Hola ${Object1.usuario}
+  `.trim()),
+  showConfirmButton: false,
+  timer: 2500
+})
                 //  JSON.parse(localStorage.getItem('token'))['token']
                 //  this.$localStorage.set('token',JSON.stringify(res.data.token))
-             console.log(localStorage)
+          //   console.log(localStorage)
                   this.$router.push('/')
                 }
                 

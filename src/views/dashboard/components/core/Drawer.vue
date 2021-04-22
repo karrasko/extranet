@@ -76,12 +76,12 @@
     mapState
   } from 'vuex'
 import sesion from '@/mixins/sesion';
-import saludo from '@/mixins/saludo';
+//import saludo from '@/mixins/saludo';
   export default {
     name: 'DashboardCoreDrawer',
     
-    mixins:[sesion,saludo],
-  
+   // mixins:[sesion,saludo],
+  mixins:[sesion],
     props: {
       expandOnHover: {
         type: Boolean,
