@@ -47,7 +47,7 @@
           <v-icon>mdi-magnify</v-icon>
         </v-btn>
       </template>
-    </v-text-field>
+     <!-- </v-text-field> -->
 
     <div class="mx-3" />
 

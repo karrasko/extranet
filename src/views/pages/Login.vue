@@ -172,9 +172,9 @@ import axios from 'axios';
            const formData = new FormData();
            formData.append('usuario',this.firstname);
            formData.append('password',this.lastname);
-            axios.post('http://localhost:88/login.php', formData)
+         //   axios.post('http://localhost:88/login.php', formData)
        //  axios.post('http://localhost/apirest/login.php', formData)
-         // axios.post('http://extranet.vipmixer.es/apirest/login.php',formData)
+          axios.post('http://extranet.vipmixer.es/apirest/login.php', formData)
           .then(r => {
                 this.respuesta = r.data;
              console.log(this.respuesta);

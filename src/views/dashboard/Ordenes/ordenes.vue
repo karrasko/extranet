@@ -243,7 +243,7 @@ import axios from 'axios';
         obtenerArticulos(){
           console.log(this.dates);
          // axios.get('http://localhost/apirest/articulos.php?dates="2021-02-09,2021-02-11"')
-           axios.get("http://localhost/apirest/articulos.php?dates=" + this.dates)
+           axios.get("http://extranet.vipmixer.es/apirest/articulos.php?dates=" + this.dates)
             .then(r => {
                 this.entradas = r.data;
                 console.log(this.entradas);
@@ -256,7 +256,7 @@ import axios from 'axios';
        getArticulos() {
         console.log(this.dates);
         axios
-          .get("http://localhost/apirest/ordenesoenvasadofin.php?dates=" + this.dates)
+          .get("http://extranet.vipmixer.es/apirest/ordenesoenvasadofin.php?dates=" + this.dates)
           .then((r) => {
             this.entradas = r.data;
              console.log(this.entradas);

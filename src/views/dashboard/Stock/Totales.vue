@@ -167,8 +167,8 @@ data(){
 
           created()
              {
-           // axios.get('http://extranet.vipmixer.es/apirest/totales.php')
-            axios.get('http://localhost/apirest/totales.php')
+           axios.get('http://extranet.vipmixer.es/apirest/totales.php')
+           // axios.get('http://localhost/apirest/totales.php')
             .then(r => {
                 this.total = r.data;
                 console.log(this.total);

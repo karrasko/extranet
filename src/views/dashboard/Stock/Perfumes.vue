@@ -45,7 +45,7 @@
                     >
                       <template v-slot:after-heading>
                         <div class="display-2 font-weight-light">
-                          Stock Bulk Totales
+                          Perfumes
                         </div>
                       </template>
 
