@@ -133,7 +133,7 @@ import axios from 'axios';
           }),
            created()
              {
-            axios.get('http://extranet.vipmixer.es/apirest/bulkperfumeriab.php')
+            axios.get('http://extranet.vipmixer.es/apirest/bulkperfumeria.php')
             .then(r => {
                 this.totales = r.data;
                 console.log(this.totales);

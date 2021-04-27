@@ -172,7 +172,7 @@ import axios from 'axios';
           }),
            created()
              {
-            axios.get('http://extranet.vipmixer.es/apirest/perfumesb.php')
+            axios.get('http://extranet.vipmixer.es/apirest/perfumes.php')
             .then(r => {
                 this.totales = r.data;
                 console.log(this.totales);
