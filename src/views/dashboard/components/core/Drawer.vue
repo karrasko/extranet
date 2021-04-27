@@ -178,13 +178,13 @@
           title: 'Ordenes',
           children: [
             {
-              title: 'Ordenes Finalizadas',
+              title: 'Todas las Ordenes',
               to: 'Ordenes'
             },
-            {
-              title: 'Ordenesdos',
-              to: 'Ordenesdos'
-            },
+            // {
+            //   title: 'Ordenesdos',
+            //   to: 'Ordenesdos'
+            // },
             ]
         },
         // {
