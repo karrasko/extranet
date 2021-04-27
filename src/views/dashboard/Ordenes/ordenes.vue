@@ -37,7 +37,7 @@
                         >
                         <template v-slot:after-heading>
                            <div class="display-2 mt-2 font-weight-light">
-                      Ordenes Finalizadas<span class="body-1">— Fecha</span>
+                      Todas las Ordenes<span class="body-1">— Fecha</span>
                     </div>
                           </template>
                   <v-menu 
@@ -204,7 +204,7 @@ import axios from 'axios';
 
            created()
              {
-            axios.get('http://extranet.vipmixer.es/apirest/articulos.php')
+            axios.get('http://extranet.vipmixer.es/apirest/ordenes.php')
             .then(r => {
                 this.entradas = r.data;
                console.log(this.entradas);

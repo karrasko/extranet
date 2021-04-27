@@ -197,7 +197,7 @@ import axios from 'axios';
 
            created()
              {
-            axios.get('http://extranet.vipmixer.es/apirest/articulos.php')
+            axios.get('http://extranet.vipmixer.es/apirest/movimientos.php')
             .then(r => {
                 this.entradas = r.data;
                console.log(this.entradas);
