@@ -88,12 +88,12 @@
         default: false
       }
     },
-      created(){
+     // created(){
    //const token = JSON.parse(this.$localStorage.get('token'))
 //localStorage.removeItem('usuario');
   //  const token = localStorage.getItem('token') 
     
-  },
+ // },
 
   
   
@@ -374,18 +374,18 @@
           group: '',
           title: this.$t('avatar'),
           children: [
-            {
-              href: '',
-              title: this.$t('my-profile')
-            },
-            {
-              to: '',
-              title: this.$t('edit-profile')
-            },
-            {
-              to: '',
-              title: this.$t('settings')
-            }
+            // {
+            //   href: '',
+            //   title: this.$t('my-profile')
+            // },
+            // {
+            //   to: '',
+            //   title: this.$t('edit-profile')
+            // },
+            // {
+            //   to: '',
+            //   title: this.$t('settings')
+            // }
           ]
         }
       }

@@ -1,9 +1,11 @@
 <template>
   <section class="mb-12 text-center">
+    <!-- v-text="`Mixer & Pack${heading}`" -->
     <h1
       class="font-weight-light mb-2"
       style="color:#3c4858; font-size:24px"
-      v-text="`Mixer & Pack${heading}`"
+      
+       v-text="`Mixer & Pack`"
     />
 
     <span

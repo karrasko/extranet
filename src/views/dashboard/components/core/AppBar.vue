@@ -28,13 +28,13 @@
 
     <v-spacer />
 
-    <v-text-field
+    <!-- <v-text-field
       :label="$t('search')"
       color="secondary"
       hide-details
       class="mb-2"
       style="max-width: 165px;"
-    >
+    > -->
       <template
         v-if="$vuetify.breakpoint.mdAndUP"
         v-slot:append-outer
@@ -47,16 +47,16 @@
           <v-icon>mdi-magnify</v-icon>
         </v-btn>
       </template>
-    </v-text-field>
+     <!-- </v-text-field> -->
 
     <div class="mx-3" />
 
-    <v-btn
+    <!-- <v-btn
       min-width="0"
       text
     >
       <v-icon>mdi-view-dashboard</v-icon>
-    </v-btn>
+    </v-btn> -->
 
     <v-menu
       bottom
@@ -72,7 +72,7 @@
           v-bind="attrs"
           v-on="on"
         >
-          <v-badge
+          <!-- <v-badge
             color="red"
             overlap
           >
@@ -81,7 +81,7 @@
             </template>
 
             <v-icon>mdi-bell</v-icon>
-          </v-badge>
+          </v-badge> -->
         </v-btn>
       </template>
 
@@ -227,7 +227,7 @@ import axios from 'axios';
       // alert('hola');
        const token = localStorage.getItem('token')
        console.log(token);
-       axios.get('http://localhost/apirest/salir.php?token='+ token)
+       axios.get('http://extranet.vipmixer.es/apirest/salir.php?token='+ token)
        .then( res =>{
          if (res.data == 'success'){
            localStorage.removeItem('token');
